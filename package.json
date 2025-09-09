@@ -1,0 +1,42 @@
+{
+  "name": "coffee-pass",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "start": "react-native start --reset-cache",
+    "format": "prettier --write src/**/*.{js,ts,tsx,json}",
+    "lint": "eslint src/**/*.{js,ts,tsx}"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "dependencies": {
+    "@react-native/new-app-screen": "0.81.1",
+    "react": "19.1.1",
+    "react-native": "0.81.4",
+    "react-native-safe-area-context": "5.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.4",
+    "@babel/preset-env": "7.28.3",
+    "@babel/runtime": "7.28.4",
+    "@react-native-community/cli": "20.0.2",
+    "@react-native-community/cli-platform-android": "20.0.2",
+    "@react-native-community/cli-platform-ios": "20.0.2",
+    "@react-native/babel-preset": "0.81.1",
+    "@react-native/codegen": "0.81.1",
+    "@react-native/eslint-config": "0.81.1",
+    "@react-native/gradle-plugin": "0.81.1",
+    "@react-native/metro-config": "0.81.1",
+    "@react-native/typescript-config": "0.81.1",
+    "@types/jest": "29.5.14",
+    "@types/react": "19.1.13",
+    "babel-plugin-module-resolver": "5.0.2",
+    "eslint": "8.57.1",
+    "prettier": "3.6.2",
+    "typescript": "5.8.3"
+  }
+}
