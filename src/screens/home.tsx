@@ -1,5 +1,5 @@
-import { useCallback, useRef, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { useCallback, useRef } from 'react'
+import { StyleSheet, View } from 'react-native'
 import {
   AutoCompleteInput,
   AutoCompleteInputController,
@@ -7,13 +7,13 @@ import {
 } from '@/components/auto-complete-input'
 
 import { coffeeShops } from '@/shared/data'
+import { useNavigate } from '@/navigation/navigate'
 import { SafeArea } from '@/shared/components/safe-area'
 import { useSuggestions } from '@/hooks/use-suggestions'
-import type { CoffeeShop } from '@/shared/types'
 
 export const HomeScreen = () => {
+  const navigation = useNavigate()
   const autocompleteController = useRef<AutoCompleteInputController>(null)
-  const [selectedCoffeeShop, setSelectedCoffeeShop] = useState<CoffeeShop | null>(null)
   const { suggestionsList, suggestionsLoading, clearSuggestions, updateSuggestions } = useSuggestions(coffeeShops)
 
   const onSelectItem = useCallback(
@@ -22,7 +22,7 @@ export const HomeScreen = () => {
       if (item == null || coffeeShop == null) return
 
       clearSuggestions()
-      setSelectedCoffeeShop(coffeeShop)
+      navigation.navigate('coffeeShop', coffeeShop)
     },
     [coffeeShops],
   )
@@ -35,8 +35,6 @@ export const HomeScreen = () => {
   return (
     <SafeArea>
       <View style={styles.container}>
-        <Text>selectedCoffeeShop {selectedCoffeeShop?.name}</Text>
-
         <AutoCompleteInput
           direction="up"
           dataSet={suggestionsList}

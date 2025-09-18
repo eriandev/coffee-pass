@@ -1,15 +1,20 @@
 import type { PathConfig, RouteProp, Theme } from '@react-navigation/native'
-import type { NativeStackNavigationOptions, NativeStackNavigationProp } from '@react-navigation/native-stack'
-import type { Component } from '@/shared/types'
+import type {
+  NativeStackNavigationOptions,
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack'
+import type { CoffeeShop, Component } from '@/shared/types'
 
 export type AppStackNavigationProp = NativeStackNavigationProp<AppStackParams>
 export type AppStackParams = {
   home: undefined
   notFound: undefined
+  coffeeShop: CoffeeShop
 }
 
 type ScreenConfig<K extends keyof AppStackParams> = {
-  screen: Component
+  screen: Component<NativeStackScreenProps<AppStackParams, K>>
   initialParams?: Partial<AppStackParams[K]>
   linking?: string | PathConfig<AppStackParams>
   options?:
