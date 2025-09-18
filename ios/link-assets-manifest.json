@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/images/parking_lot.webp",
+      "sha1": "b3bc6ab6979052026a74248d7c4cdd0798386596"
+    },
+    {
+      "path": "src/assets/images/peruvian_coffee.webp",
+      "sha1": "d1102b921cb9e247b0e464a6906a86b32d203380"
+    },
+    {
+      "path": "src/assets/images/pet_friendly.webp",
+      "sha1": "48f6088aeb6beed2a39c2f9ce5e27877580c48b7"
+    },
+    {
+      "path": "src/assets/images/vegan_options.webp",
+      "sha1": "52f233a0d4024edcf394cb0ac0f816340c2b93b4"
+    },
+    {
+      "path": "src/assets/images/wifi_zone.webp",
+      "sha1": "559fe128652d1a0316c5ef9511cad9b5ac9ca625"
+    }
+  ]
+}

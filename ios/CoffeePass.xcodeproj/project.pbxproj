@@ -11,6 +11,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		086881959C9B451E98B42A25 /* parking_lot.webp in Resources */ = {isa = PBXBuildFile; fileRef = 6C042E27A25E476AAAC8FA71 /* parking_lot.webp */; };
+		51B0606B618145EBA74E8664 /* peruvian_coffee.webp in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F55EAB9CE439AA7B25186 /* peruvian_coffee.webp */; };
+		CACAE3BEE9BA415E9F83F683 /* pet_friendly.webp in Resources */ = {isa = PBXBuildFile; fileRef = AE6154DFD507410A8EDD2875 /* pet_friendly.webp */; };
+		2DEC56BBCD984FD38007DF53 /* vegan_options.webp in Resources */ = {isa = PBXBuildFile; fileRef = 302E73FAA6574ABB8931D50E /* vegan_options.webp */; };
+		CAC91156127045E1BEE3DC81 /* wifi_zone.webp in Resources */ = {isa = PBXBuildFile; fileRef = C61464640F264DBB9364A45D /* wifi_zone.webp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CoffeePass/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "CoffeePass/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		6C042E27A25E476AAAC8FA71 /* parking_lot.webp */ = {isa = PBXFileReference; name = "parking_lot.webp"; path = "../src/assets/images/parking_lot.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5F0F55EAB9CE439AA7B25186 /* peruvian_coffee.webp */ = {isa = PBXFileReference; name = "peruvian_coffee.webp"; path = "../src/assets/images/peruvian_coffee.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE6154DFD507410A8EDD2875 /* pet_friendly.webp */ = {isa = PBXFileReference; name = "pet_friendly.webp"; path = "../src/assets/images/pet_friendly.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		302E73FAA6574ABB8931D50E /* vegan_options.webp */ = {isa = PBXFileReference; name = "vegan_options.webp"; path = "../src/assets/images/vegan_options.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C61464640F264DBB9364A45D /* wifi_zone.webp */ = {isa = PBXFileReference; name = "wifi_zone.webp"; path = "../src/assets/images/wifi_zone.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				CC45187F6C2F44D192A3B43A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -96,6 +107,19 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		CC45187F6C2F44D192A3B43A /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6C042E27A25E476AAAC8FA71 /* parking_lot.webp */,
+				5F0F55EAB9CE439AA7B25186 /* peruvian_coffee.webp */,
+				AE6154DFD507410A8EDD2875 /* pet_friendly.webp */,
+				302E73FAA6574ABB8931D50E /* vegan_options.webp */,
+				C61464640F264DBB9364A45D /* wifi_zone.webp */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -159,6 +183,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				086881959C9B451E98B42A25 /* parking_lot.webp in Resources */,
+				51B0606B618145EBA74E8664 /* peruvian_coffee.webp in Resources */,
+				CACAE3BEE9BA415E9F83F683 /* pet_friendly.webp in Resources */,
+				2DEC56BBCD984FD38007DF53 /* vegan_options.webp in Resources */,
+				CAC91156127045E1BEE3DC81 /* wifi_zone.webp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +289,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "CoffeePass/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "Coffee Pass";
+				INFOPLIST_KEY_CFBundleDisplayName = "Coffee Pass";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,7 +317,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = "CoffeePass/Info.plist";
-             INFOPLIST_KEY_CFBundleDisplayName = "Coffee Pass";
+				INFOPLIST_KEY_CFBundleDisplayName = "Coffee Pass";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
