@@ -28,7 +28,7 @@ export function useSuggestions(
       setSuggestionsList(suggestions)
       setSuggestionsLoading(false)
     },
-    [data],
+    [data, minQueryLength],
   )
 
   const clearSuggestions = () => {

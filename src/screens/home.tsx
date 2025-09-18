@@ -24,13 +24,13 @@ export const HomeScreen = () => {
       clearSuggestions()
       navigation.navigate('coffeeShop', coffeeShop)
     },
-    [coffeeShops],
+    [navigation, clearSuggestions],
   )
 
   const onClear = useCallback(() => {
     autocompleteController.current?.clear()
     clearSuggestions()
-  }, [autocompleteController.current])
+  }, [autocompleteController, clearSuggestions])
 
   return (
     <SafeArea>
