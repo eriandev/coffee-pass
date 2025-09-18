@@ -14,5 +14,5 @@ export type CoffeeShop = {
   veganOptions: boolean
   peruvianCoffee: boolean
   addresses: Array<{ address: string; district: string; commingSoon?: boolean }>
-  socials: Array<{ social: string; link: string }>
+  socials: Array<{ social: 'instagram' | 'facebook' | 'tiktok'; link: string }>
 }
