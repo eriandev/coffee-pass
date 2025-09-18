@@ -4,12 +4,13 @@ import type { StaticScreenProps } from '@react-navigation/native'
 import { CopyIcon } from '@/components/icons/copy'
 import { MapPinIcon } from '@/components/icons/map-pin'
 import { SafeArea } from '@/shared/components/safe-area'
+import { FeatureBadge } from '@/components/feature-badge'
 import type { AppStackParams } from '@/navigation/types'
 
 export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop']>
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
-  const { addresses, name } = params
+  const { addresses, name, parkingLot, peruvianCoffee, petFriendly, veganOptions, wifiZone } = params
 
   return (
     <SafeArea style={styles.safearea}>
@@ -17,6 +18,13 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
         <View style={styles.header}>
           <View style={styles.circle} />
           <Text style={styles.title}>{name}</Text>
+        </View>
+        <View style={styles.badges}>
+          {peruvianCoffee && <FeatureBadge name="peruvianCoffee" />}
+          {wifiZone && <FeatureBadge name="wifiZone" />}
+          {petFriendly && <FeatureBadge name="petFriendly" />}
+          {parkingLot && <FeatureBadge name="parkingLot" />}
+          {veganOptions && <FeatureBadge name="veganOptions" containerStyle={styles.badgeVeganOptions} />}
         </View>
         <View style={styles.addresses}>
           {addresses.map(({ address, district }) => (
@@ -63,6 +71,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     textAlign: 'center',
+  },
+  badges: {
+    rowGap: 8,
+    columnGap: 12,
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  badgeVeganOptions: {
+    paddingLeft: 8,
   },
   addresses: {
     rowGap: 8,
