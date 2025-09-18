@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
+import { Link } from '@/components/link'
 import { CopyIcon } from '@/components/icons/copy'
+import { useClipboard } from '@/hooks/use-clipboard'
 import { MapPinIcon } from '@/components/icons/map-pin'
 import { SafeArea } from '@/shared/components/safe-area'
 import { FeatureBadge } from '@/components/feature-badge'
@@ -11,6 +13,8 @@ export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
   const { addresses, name, parkingLot, peruvianCoffee, petFriendly, veganOptions, wifiZone } = params
+
+  const { copiedText, copyToClipboard } = useClipboard()
 
   return (
     <SafeArea style={styles.safearea}>
@@ -27,19 +31,28 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
           {veganOptions && <FeatureBadge name="veganOptions" containerStyle={styles.badgeVeganOptions} />}
         </View>
         <View style={styles.addresses}>
-          {addresses.map(({ address, district }) => (
-            <View key={address} style={styles.addressRow}>
-              <View style={styles.addressInfo}>
-                <Text style={styles.address}>
-                  {address}, {district}
-                </Text>
+          {addresses.map(({ address, district }) => {
+            const fullAddress = `${address}, ${district}`.trim()
+            const googleMapsPoint = 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+')
+
+            return (
+              <View key={address} style={styles.addressRow}>
+                <View style={styles.addressInfo}>
+                  <Text style={styles.address}>
+                    {address}, {district}
+                  </Text>
+                </View>
+                <View style={styles.addressActions}>
+                  <Pressable onPress={() => copyToClipboard(fullAddress)}>
+                    <CopyIcon color={styles.icon.color} />
+                  </Pressable>
+                  <Link to={googleMapsPoint}>
+                    <MapPinIcon color={styles.icon.color} />
+                  </Link>
+                </View>
               </View>
-              <View style={styles.addressActions}>
-                <CopyIcon color={styles.icon.color} />
-                <MapPinIcon color={styles.icon.color} />
-              </View>
-            </View>
-          ))}
+            )
+          })}
         </View>
       </ScrollView>
     </SafeArea>
@@ -99,10 +112,11 @@ const styles = StyleSheet.create({
   },
   addressActions: {
     width: '20%',
+    columnGap: 16,
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   address: {
     fontSize: 16,
