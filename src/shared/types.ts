@@ -7,7 +7,12 @@ export type FC<P = unknown> = (props: PropsWithChildren<P>) => JSXElement
 export type CoffeeShop = {
   name: string
   keys: string[]
-  petFriendly?: boolean
+  pages: number[]
+  wifiZone: boolean
+  parkingLot: boolean
+  petFriendly: boolean
+  veganOptions: boolean
+  peruvianCoffee: boolean
   addresses: Array<{ address: string; district: string; commingSoon?: boolean }>
   socials: Array<{ social: string; link: string }>
 }

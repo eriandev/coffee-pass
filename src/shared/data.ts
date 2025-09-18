@@ -2,7 +2,378 @@ import type { CoffeeShop } from '@/shared/types'
 
 export const coffeeShops: CoffeeShop[] = [
   {
+    name: 'Artidoro Rodríguez Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Calle Tarata 285',
+        district: 'Miraflores',
+      },
+      {
+        address: 'Av. La Mar 342',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/artidorocoffee',
+      },
+    ],
+    pages: [8, 9, 30, 31],
+    keys: ['artidoro rodríguez café', 'miraflores', 'artidorocoffee'],
+  },
+  {
+    name: 'Neira Café Lab',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Enrique Palacios 1074',
+        district: 'Miraflores',
+      },
+      {
+        address: 'Victor Maurtua 150',
+        district: 'San Isidro',
+      },
+      {
+        address: '2 de Mayo 1230',
+        district: 'San Isidro',
+      },
+      {
+        address: 'Torre Interbank',
+        district: 'La Victoria',
+      },
+      {
+        address: 'Av Caminos del Inca 1110',
+        district: 'Chacarilla',
+      },
+      {
+        address: 'Av. República de Panamá 6017',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/neiracafelab',
+      },
+    ],
+    pages: [10, 11],
+    keys: ['neira café lab', 'miraflores', 'san isidro', 'la victoria', 'chacarilla', 'neiracafelab'],
+  },
+  {
+    name: 'Punto Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Calle Piura 1251',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/puntocafe_pe',
+      },
+    ],
+    pages: [12, 13],
+    keys: ['punto café', 'miraflores', 'puntocafe_pe'],
+  },
+  {
+    name: 'Amarena',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Av. Mariscal La Mar 438',
+        district: 'Miraflores',
+      },
+      {
+        address: 'Av. Bolognesi 506',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/amarena.___',
+      },
+    ],
+    pages: [14, 15],
+    keys: ['amarena', 'miraflores', 'amarena.___'],
+  },
+  {
+    name: 'Ok Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Av. Mariscal La Mar 882',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/okcafe__________',
+      },
+    ],
+    pages: [16, 17],
+    keys: ['ok café', 'miraflores', 'okcafe__________'],
+  },
+  {
+    name: 'Senda Cafe',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Calle Alcanfores 348',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/sendacafe',
+      },
+    ],
+    pages: [18, 19],
+    keys: ['senda cafe', 'miraflores', 'sendacafe'],
+  },
+  {
+    name: 'Praga Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Calle Jose Toribio Polo 367',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/pragacafe_pe',
+      },
+    ],
+    pages: [20, 21],
+    keys: ['praga café', 'miraflores', 'pragacafe_pe'],
+  },
+  {
+    name: 'Taruka Coffee Roots',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Grimaldo del Solar 265',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/taruka.coffee',
+      },
+    ],
+    pages: [22, 23],
+    keys: ['taruka coffee roots', 'miraflores', 'taruka.coffee'],
+  },
+  {
+    name: 'Ursa Coffee Roasters',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Alcanfores 183',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/ursacoffeeperu',
+      },
+    ],
+    pages: [24, 25],
+    keys: ['ursa coffee roasters', 'miraflores', 'ursacoffeeperu'],
+  },
+  {
+    name: 'Cardinal Café',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. Angamos Oeste 567-A',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/cardinalcafe.pe',
+      },
+    ],
+    pages: [26, 27],
+    keys: ['cardinal café', 'miraflores', 'cardinalcafe.pe'],
+  },
+  {
+    name: 'Parque Sol Terraza Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Calle Piura 498',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/parquesolterrazacafe',
+      },
+    ],
+    pages: [28, 29],
+    keys: ['parque sol terraza café', 'miraflores', 'parquesolterrazacafe'],
+  },
+  {
+    name: 'Pache Café',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. Miguel Grau 1520',
+        district: 'Barranco',
+      },
+      {
+        address: 'Av. Grimaldo del Solar 317',
+        district: 'Miraflores',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/pachecafe',
+      },
+    ],
+    pages: [34, 35],
+    keys: ['pache café', 'barranco', 'miraflores', 'pachecafe'],
+  },
+  {
+    name: 'Caleta Dolsa Coffee',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. San Martín 223',
+        district: 'Barranco',
+      },
+      {
+        address: 'Av. Pardo y Aliaga 658',
+        district: 'San Isidro',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/caleta.dolsacoffee',
+      },
+    ],
+    pages: [36, 37],
+    keys: ['caleta dolsa coffee', 'barranco', 'san isidro', 'caleta.dolsacoffee'],
+  },
+  {
+    name: 'Ciclos Café',
+    wifiZone: false,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
+    addresses: [
+      {
+        address: 'Jr. Colina 111',
+        district: 'Barranco',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/cicloscafe',
+      },
+    ],
+    pages: [38, 39],
+    keys: ['ciclos café', 'barranco', 'cicloscafe'],
+  },
+  {
+    name: 'MONOTONO COFFEE',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Jr. Fedelli 103',
+        district: 'Barranco',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/monotonocoffee',
+      },
+    ],
+    pages: [40, 41],
+    keys: ['monotono coffee', 'barranco', 'monotonocoffee'],
+  },
+  {
     name: 'La Teoría de los 6 Cafés',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Camelias 763',
@@ -23,54 +394,98 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/teoriadelos6cafes',
       },
     ],
+    pages: [44, 45],
     keys: ['la teoría de los 6 cafés', 'san isidro', 'miraflores', 'teoriadelos6cafes'],
   },
   {
-    name: 'Caleta Dolsa Coffee',
+    name: 'Café Gianfranco',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
-        address: 'Av. San Martín 223',
-        district: 'Barranco',
-      },
-      {
-        address: 'Av. Pardo y Aliaga 658',
+        address: 'Av. Javier Prado Oeste 705',
         district: 'San Isidro',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/caleta.dolsacoffee',
+        link: 'https://www.instagram.com/cafegianfranco',
       },
     ],
-    keys: ['caleta dolsa coffee', 'barranco', 'san isidro', 'caleta.dolsacoffee'],
+    pages: [46, 47],
+    keys: ['café gianfranco', 'san isidro', 'cafegianfranco'],
   },
   {
-    name: 'Kaldis Specialty Coffee',
+    name: 'Don Salazar',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
     addresses: [
       {
-        address: 'Calle Gral Recavarren 598',
-        district: 'Miraflores',
-      },
-      {
-        address: 'Av. Aramburú 1147',
+        address: 'Calle Las Camelias 185',
         district: 'San Isidro',
       },
       {
-        address: 'Calle Grimaldo del Solar 247',
+        address: 'Jr. Luis Sánchez Cerro 2098',
+        district: 'Jesús María',
+      },
+      {
+        address: 'Tottus Av. La Fontana 810',
+        district: 'La Molina',
+      },
+      {
+        address: 'Boulevard Puntamar KM 42',
+        district: 'Punta Hermosa',
+      },
+      {
+        address: 'Av. Gral Salaverry 2370',
+        district: 'Jesús María',
+      },
+      {
+        address: 'Av. Jorge Chavez 148, Cruce Av. Pardo con Comandante Espinar',
         district: 'Miraflores',
+      },
+      {
+        address: 'Av. Javier Prado Este 4200',
+        district: 'Surco',
+      },
+      {
+        address: 'Av. de la Marina 2000',
+        district: 'San Miguel',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/kaldiscoffeetea',
+        link: 'https://www.instagram.com/donsalazar_coffee',
       },
     ],
-    keys: ['kaldis specialty coffee', 'miraflores', 'san isidro', 'kaldiscoffeetea'],
+    pages: [48, 49],
+    keys: [
+      'don salazar',
+      'san isidro',
+      'jesús maría',
+      'la molina',
+      'punta hermosa',
+      'miraflores',
+      'surco',
+      'san miguel',
+      'donsalazar_coffee',
+    ],
   },
   {
     name: 'The Coffee',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. República de Colombia 729',
@@ -126,6 +541,7 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/thecoffee.pe',
       },
     ],
+    pages: [50, 51],
     keys: [
       'the coffee',
       'san isidro',
@@ -139,319 +555,64 @@ export const coffeeShops: CoffeeShop[] = [
     ],
   },
   {
-    name: 'Don Salazar',
-    addresses: [
-      {
-        address: 'Calle Las Camelias 185',
-        district: 'San Isidro',
-      },
-      {
-        address: 'Jr. Luis Sánchez Cerro 2098',
-        district: 'Jesús María',
-      },
-      {
-        address: 'Tottus Av. La Fontana 810',
-        district: 'La Molina',
-      },
-      {
-        address: 'Boulevard Puntamar KM 42',
-        district: 'Punta Hermosa',
-      },
-      {
-        address: 'Av. Gral Salaverry 2370',
-        district: 'Jesús María',
-      },
-      {
-        address: 'Av. Jorge Chavez 148, Cruce Av. Pardo con Comandante Espinar',
-        district: 'Miraflores',
-      },
-      {
-        address: 'Av. Javier Prado Este 4200',
-        district: 'Surco',
-      },
-      {
-        address: 'Av. de la Marina 2000',
-        district: 'San Miguel',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/donsalazar_coffee',
-      },
-    ],
-    keys: [
-      'don salazar',
-      'san isidro',
-      'jesús maría',
-      'la molina',
-      'punta hermosa',
-      'miraflores',
-      'surco',
-      'san miguel',
-      'donsalazar_coffee',
-    ],
-  },
-  {
-    name: 'Café Gianfranco',
+    name: 'Kaldis Specialty Coffee',
+    wifiZone: true,
+    parkingLot: false,
     petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
-        address: 'Avenida Javier Prado Oeste 705',
-        district: 'San Isidro',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/cafegianfranco',
-      },
-    ],
-    keys: ['café gianfranco', 'san isidro', 'cafegianfranco'],
-  },
-  {
-    name: 'Neira Café Lab',
-    addresses: [
-      {
-        address: 'Enrique Palacios 1074',
+        address: 'Calle Gral Recavarren 598',
         district: 'Miraflores',
       },
       {
-        address: 'Victor Maurtua 150',
+        address: 'Av. Aramburú 1147',
         district: 'San Isidro',
       },
       {
-        address: '2 de Mayo 1230',
-        district: 'San Isidro',
-      },
-      {
-        address: 'Torre Interbank',
-        district: 'La Victoria',
-      },
-      {
-        address: 'Av Caminos del Inca 1110',
-        district: 'Chacarilla',
-      },
-      {
-        address: 'Av. República de Panamá 6017',
+        address: 'Calle Grimaldo del Solar 247',
         district: 'Miraflores',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/neiracafelab',
+        link: 'https://www.instagram.com/kaldiscoffeetea',
       },
     ],
-    keys: ['neira café lab', 'miraflores', 'san isidro', 'la victoria', 'chacarilla', 'neiracafelab'],
+    pages: [52, 53],
+    keys: ['kaldis specialty coffee', 'miraflores', 'san isidro', 'kaldiscoffeetea'],
   },
   {
-    name: 'Amarena',
-    addresses: [
-      {
-        address: 'Av. Mariscal La Mar 438',
-        district: 'Miraflores',
-      },
-      {
-        address: 'Av. Bolognesi 506',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/amarena.___',
-      },
-    ],
-    keys: ['amarena', 'miraflores', 'amarena.___'],
-  },
-  {
-    name: 'Punto Café',
-    addresses: [
-      {
-        address: 'Calle Piura 1251',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/puntocafe_pe',
-      },
-    ],
-    keys: ['punto café', 'miraflores', 'puntocafe_pe'],
-  },
-  {
-    name: 'Senda Cafe',
+    name: 'The Coffee Road',
+    wifiZone: true,
+    parkingLot: true,
     petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: false,
     addresses: [
       {
-        address: 'Calle Alcanfores 348',
-        district: 'Miraflores',
+        address: 'Av. Prescott 365',
+        district: 'San Isidro',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/sendacafe',
+        link: 'https://www.instagram.com/thecoffeeroad',
       },
     ],
-    keys: ['senda cafe', 'miraflores', 'sendacafe'],
-  },
-  {
-    name: 'Parque Sol Terraza Café',
-    addresses: [
-      {
-        address: 'Calle Piura 498',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/parquesolterrazacafe',
-      },
-    ],
-    keys: ['parque sol terraza café', 'miraflores', 'parquesolterrazacafe'],
-  },
-  {
-    name: 'Ursa Coffee Roasters',
-    addresses: [
-      {
-        address: 'Alcanfores 183',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/ursacoffeeperu',
-      },
-    ],
-    keys: ['ursa coffee roasters', 'miraflores', 'ursacoffeeperu'],
-  },
-  {
-    name: 'Taruka Coffee Roots',
-    addresses: [
-      {
-        address: 'Grimaldo del Solar 265',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/taruka.coffee',
-      },
-    ],
-    keys: ['taruka coffee roots', 'miraflores', 'taruka.coffee'],
-  },
-  {
-    name: 'Artidoro Rodríguez Café',
-    addresses: [
-      {
-        address: 'Calle Tarata 285',
-        district: 'Miraflores',
-      },
-      {
-        address: 'Av. La Mar 342',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/artidorocoffee',
-      },
-    ],
-    keys: ['artidoro rodríguez café', 'miraflores', 'artidorocoffee'],
-  },
-  {
-    name: 'Pache',
-    addresses: [
-      {
-        address: 'Av. Miguel Grau 1520',
-        district: 'Barranco',
-      },
-      {
-        address: 'Av. Grimaldo del Solar 317',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/pachecafe',
-      },
-    ],
-    keys: ['pache', 'barranco', 'miraflores', 'pachecafe'],
-  },
-  {
-    name: 'Praga Café',
-    addresses: [
-      {
-        address: 'Calle Jose Toribio Polo 367',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/pragacafe_pe',
-      },
-    ],
-    keys: ['praga café', 'miraflores', 'pragacafe_pe'],
-  },
-  {
-    name: 'Ok Café',
-    addresses: [
-      {
-        address: 'Av. Mariscal La Mar 882',
-        district: 'Miraflores',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/okcafe__________',
-      },
-    ],
-    keys: ['ok café', 'miraflores', 'okcafe__________'],
-  },
-  {
-    name: 'Monotono Coffee',
-    addresses: [
-      {
-        address: 'Jr. Fedelli 103',
-        district: 'Barranco',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/monotonocoffee',
-      },
-    ],
-    keys: ['monotono coffee', 'barranco', 'monotonocoffee'],
-  },
-  {
-    name: 'Ciclos Café',
-    addresses: [
-      {
-        address: 'Jr. Colina 111',
-        district: 'Barranco',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/cicloscafe',
-      },
-    ],
-    keys: ['ciclos café', 'barranco', 'cicloscafe'],
+    pages: [54, 55],
+    keys: ['the coffee road', 'san isidro', 'thecoffeeroad'],
   },
   {
     name: 'Origen Tostadores de Café',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: false,
     addresses: [
       {
         address: 'Av. Simón Bolívar 1199',
@@ -472,55 +633,20 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/origentostadoresdecafe',
       },
     ],
+    pages: [58, 59],
     keys: ['origen tostadores de café', 'pueblo libre', 'surquillo', 'lince', 'origentostadoresdecafe'],
   },
   {
-    name: 'Abisinia Café',
-    addresses: [
-      {
-        address: 'Av. Rodriguez de Mendoza 245',
-        district: 'Pueblo Libre',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/abisinia.co',
-      },
-    ],
-    keys: ['abisinia café', 'pueblo libre', 'abisinia.co'],
-  },
-  {
-    name: 'Barra Cafeteadora',
-    addresses: [
-      {
-        address: 'Jr. Arrieta 127',
-        district: 'Pueblo Libre',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/barracafeteadora',
-      },
-    ],
-    keys: ['barra cafeteadora', 'pueblo libre', 'barracafeteadora'],
-  },
-  {
     name: 'Comadre Café',
+    wifiZone: true,
+    parkingLot: false,
     petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: false,
     addresses: [
       {
         address: 'Av. Manuel Cipriano Dulanto 1614',
         district: 'Pueblo Libre',
-      },
-      {
-        address: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        district: 'Miraflores',
-      },
-      {
-        address: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        district: 'Miraflores',
       },
     ],
     socials: [
@@ -529,10 +655,16 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/comadrecafe.pe',
       },
     ],
+    pages: [60, 61],
     keys: ['comadre café', 'pueblo libre', 'miraflores', 'comadrecafe.pe'],
   },
   {
     name: 'Cordillera 27 Café',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. Parque el Carmen 1216',
@@ -545,42 +677,60 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/cordillera27cafe',
       },
     ],
+    pages: [62, 63],
     keys: ['cordillera 27 café', 'pueblo libre', 'cordillera27cafe'],
   },
   {
-    name: 'SinMigajas',
+    name: 'Barra Cafeteadora',
+    wifiZone: false,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: false,
     addresses: [
       {
-        address: 'Av. Agustín de la Rosa Toro 1128',
-        district: 'San Borja',
+        address: 'Jr. Arrieta 127',
+        district: 'Pueblo Libre',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/sinmigajasperu',
+        link: 'https://www.instagram.com/barracafeteadora',
       },
     ],
-    keys: ['sinmigajas', 'san borja', 'sinmigajasperu'],
+    pages: [64, 65],
+    keys: ['barra cafeteadora', 'pueblo libre', 'barracafeteadora'],
   },
   {
-    name: 'Violet Cafe Lab',
+    name: 'Abisinia Café',
+    wifiZone: false,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
     addresses: [
       {
-        address: 'Av. San Luis 2516',
-        district: 'San Borja',
+        address: 'Av. Rodriguez de Mendoza 245',
+        district: 'Pueblo Libre',
       },
     ],
     socials: [
       {
         social: 'instagram',
-        link: 'https://www.instagram.com/violetcafelab_tostaduria',
+        link: 'https://www.instagram.com/abisinia.co',
       },
     ],
-    keys: ['violet cafe lab', 'san borja', 'violetcafelab_tostaduria'],
+    pages: [66, 67],
+    keys: ['abisinia café', 'pueblo libre', 'abisinia.co'],
   },
   {
     name: 'Clamore Café',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. Arenales 471',
@@ -597,26 +747,16 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/clamorecafe',
       },
     ],
+    pages: [70, 71],
     keys: ['clamore café', 'jesús maría', 'clamorecafe'],
   },
   {
-    name: 'Yorifer Café',
-    addresses: [
-      {
-        address: 'Av. Húsares de Junín 425',
-        district: 'Jesús María',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/yorifer.cafe',
-      },
-    ],
-    keys: ['yorifer café', 'jesús maría', 'yorifer.cafe'],
-  },
-  {
     name: 'Cosecha',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. Horacio Urteaga 1180',
@@ -629,10 +769,38 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/cosecha.peru',
       },
     ],
+    pages: [72, 73],
     keys: ['cosecha', 'jesús maría', 'cosecha.peru'],
   },
   {
+    name: 'Yorifer Café',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. Húsares de Junín 425',
+        district: 'Jesús María',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/yorifer.cafe',
+      },
+    ],
+    pages: [74, 75],
+    keys: ['yorifer café', 'jesús maría', 'yorifer.cafe'],
+  },
+  {
     name: 'Bocanada',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'El Polo 480',
@@ -645,10 +813,16 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/bocanadaperu',
       },
     ],
+    pages: [78, 79],
     keys: ['bocanada', 'santiago de surco', 'bocanadaperu'],
   },
   {
     name: 'Cabina Lima',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. La Encalada 398',
@@ -661,10 +835,16 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/cabinalima_',
       },
     ],
+    pages: [80, 81],
     keys: ['cabina lima', 'santiago de surco', 'cabinalima_'],
   },
   {
     name: 'Amauta Coffee',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Calle Alcanfores 323',
@@ -685,10 +865,38 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/amautacoffee',
       },
     ],
+    pages: [82, 83],
     keys: ['amauta coffee', 'miraflores', 'surco', 'amautacoffee'],
   },
   {
+    name: 'Frecuente',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Jr. Leoncio Prado 490',
+        district: 'Surquillo',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/frecuente.pe',
+      },
+    ],
+    pages: [86, 87],
+    keys: ['frecuente', 'surquillo', 'frecuente.pe'],
+  },
+  {
     name: "D'Sala Caffè",
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. Gonzáles Prada 543',
@@ -709,26 +917,16 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/dsalacaffe',
       },
     ],
+    pages: [88, 89],
     keys: ["d'sala caffè", 'surquillo', 'magdalena', 'san isidro', 'dsalacaffe'],
   },
   {
-    name: 'Frecuente',
-    addresses: [
-      {
-        address: 'Jr. Leoncio Prado 490',
-        district: 'Surquillo',
-      },
-    ],
-    socials: [
-      {
-        social: 'instagram',
-        link: 'https://www.instagram.com/frecuente.pe',
-      },
-    ],
-    keys: ['frecuente', 'surquillo', 'frecuente.pe'],
-  },
-  {
     name: 'Oriunda Cafetería Organica',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
     addresses: [
       {
         address: 'Av. Ricardo Palma 240',
@@ -741,6 +939,51 @@ export const coffeeShops: CoffeeShop[] = [
         link: 'https://www.instagram.com/oriundacafeteria',
       },
     ],
+    pages: [90, 91],
     keys: ['oriunda cafetería organica', 'surquillo', 'oriundacafeteria'],
+  },
+  {
+    name: 'SinMigajas',
+    wifiZone: true,
+    parkingLot: true,
+    petFriendly: true,
+    veganOptions: false,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. Agustín de la Rosa Toro 1128',
+        district: 'San Borja',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/sinmigajasperu',
+      },
+    ],
+    pages: [94, 95],
+    keys: ['sinmigajas', 'san borja', 'sinmigajasperu'],
+  },
+  {
+    name: 'Violet Cafe Lab',
+    wifiZone: true,
+    parkingLot: false,
+    petFriendly: true,
+    veganOptions: true,
+    peruvianCoffee: true,
+    addresses: [
+      {
+        address: 'Av. San Luis 2516',
+        district: 'San Borja',
+      },
+    ],
+    socials: [
+      {
+        social: 'instagram',
+        link: 'https://www.instagram.com/violetcafelab_tostaduria',
+      },
+    ],
+    pages: [96, 97],
+    keys: ['violet cafe lab', 'san borja', 'violetcafelab_tostaduria'],
   },
 ]
