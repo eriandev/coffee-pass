@@ -8,8 +8,8 @@ import type {
 import type { RefObject } from 'react'
 import type { FC } from '@/shared/types'
 
-export interface AutoCompleteInputItem extends AutocompleteDropdownItem {}
-export interface AutoCompleteInputController extends IAutocompleteDropdownRef {}
+export type AutoCompleteInputItem = AutocompleteDropdownItem
+export type AutoCompleteInputController = IAutocompleteDropdownRef
 export type AutoCompleteInputProps = Omit<IAutocompleteDropdownProps, 'controller'> & {
   controller?: RefObject<AutoCompleteInputController | null>
   emptyResultText?: string

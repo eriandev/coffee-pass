@@ -48,7 +48,7 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
 
         <View style={styles.addresses}>
           {addresses.map(({ address, district }) => (
-            <AddressCard address={address} district={district} />
+            <AddressCard key={address} address={address} district={district} />
           ))}
         </View>
 
