@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios": "react-native run-ios",
-    "android": "react-native run-android",
+    "ios": "react-native run-ios --port 8082",
     "start": "react-native start --reset-cache",
+    "android": "react-native run-android --port 8082",
     "format": "prettier --write src/**/*.{js,ts,tsx,json}",
     "lint": "eslint src/**/*.{js,ts,tsx}"
   },
@@ -21,6 +21,7 @@
     "react-native": "0.81.1",
     "react-native-autocomplete-dropdown": "5.0.0",
     "react-native-bootsplash": "6.3.11",
+    "react-native-date-picker": "5.0.13",
     "react-native-safe-area-context": "5.6.1",
     "react-native-screens": "4.15.4",
     "react-native-svg": "15.13.0"

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
@@ -11,6 +12,7 @@ import { TiktokIcon } from '@/components/icons/socials/tiktok'
 import { FacebookIcon } from '@/components/icons/socials/facebook'
 import { InstagramIcon } from '@/components/icons/socials/instagram'
 import type { AppStackParams } from '@/navigation/types'
+import { AddVisitModal } from '@/components/modals/add-visit-modal'
 
 const socialIcons = {
   instagram: <InstagramIcon />,
@@ -22,6 +24,8 @@ export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
   const { addresses, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } = params
+
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <SafeArea style={styles.safearea}>
@@ -59,9 +63,16 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
         </View>
       </ScrollView>
 
-      <FloatingAction action={() => {}} style={styles.floatingAction}>
+      <FloatingAction
+        action={() => {
+          setShowModal(true)
+        }}
+        style={styles.floatingAction}
+      >
         <PlusIcon width={32} height={32} color={styles.floatingAction.color} />
       </FloatingAction>
+
+      <AddVisitModal visible={showModal} onClose={() => setShowModal(false)} />
     </SafeArea>
   )
 }
