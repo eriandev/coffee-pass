@@ -1,11 +1,9 @@
-import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
-import { CopyIcon } from '@/components/icons/copy'
 import { PlusIcon } from '@/components/icons/plus'
-import { useClipboard } from '@/hooks/use-clipboard'
-import { MapPinIcon } from '@/components/icons/map-pin'
+import { AddressCard } from '@/components/address-card'
 import { SafeArea } from '@/shared/components/safe-area'
 import { FeatureBadge } from '@/components/feature-badge'
 import { FloatingAction } from '@/components/floating-action'
@@ -25,8 +23,6 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
   const { addresses, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } = params
 
-  const { copyToClipboard } = useClipboard()
-
   return (
     <SafeArea style={styles.safearea}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -35,12 +31,13 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
           <Text style={styles.title}>{name}</Text>
           <View style={styles.socials}>
             {socials.map(({ link, social }) => (
-              <Link key={social} to={link}>
+              <Link key={social} to={link} style={styles.social}>
                 {socialIcons[social]}
               </Link>
             ))}
           </View>
         </View>
+
         <View style={styles.badges}>
           {peruvianCoffee && <FeatureBadge name="peruvianCoffee" />}
           {wifiZone && <FeatureBadge name="wifiZone" />}
@@ -48,34 +45,17 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
           {parkingLot && <FeatureBadge name="parkingLot" />}
           {veganOptions && <FeatureBadge name="veganOptions" containerStyle={styles.badgeVeganOptions} />}
         </View>
+
+        <View style={styles.addresses}>
+          {addresses.map(({ address, district }) => (
+            <AddressCard address={address} district={district} />
+          ))}
+        </View>
+
         <View style={styles.pages}>
           {pages.map((page) => (
             <Text key={page}>{page}</Text>
           ))}
-        </View>
-        <View style={styles.addresses}>
-          {addresses.map(({ address, district }) => {
-            const fullAddress = `${address}, ${district}`.trim()
-            const googleMapsPoint = 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+')
-
-            return (
-              <View key={address} style={styles.addressRow}>
-                <View style={styles.addressInfo}>
-                  <Text style={styles.address}>
-                    {address}, {district}
-                  </Text>
-                </View>
-                <View style={styles.addressActions}>
-                  <Pressable onPress={() => copyToClipboard(fullAddress)}>
-                    <CopyIcon color={styles.icon.color} />
-                  </Pressable>
-                  <Link to={googleMapsPoint}>
-                    <MapPinIcon color={styles.icon.color} />
-                  </Link>
-                </View>
-              </View>
-            )
-          })}
         </View>
       </ScrollView>
 
@@ -98,6 +78,7 @@ const styles = StyleSheet.create({
     minHeight: '100%',
     paddingBottom: 96,
     paddingHorizontal: 16,
+    backgroundColor: '#F7F7F7',
   },
   header: {
     rowGap: 16,
@@ -121,6 +102,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  social: {
+    width: 40,
+    height: 40,
+    display: 'flex',
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FAFAFA',
+  },
   badges: {
     rowGap: 8,
     columnGap: 12,
@@ -140,32 +130,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   addresses: {
-    rowGap: 8,
+    rowGap: 16,
     display: 'flex',
-  },
-  addressRow: {
-    minHeight: 32,
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  addressInfo: {
-    width: '80%',
-    paddingRight: 12,
-    justifyContent: 'center',
-  },
-  addressActions: {
-    width: '20%',
-    columnGap: 16,
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  address: {
-    fontSize: 16,
-  },
-  icon: {
-    color: '#000',
   },
   floatingAction: {
     bottom: 40,

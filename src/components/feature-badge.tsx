@@ -36,14 +36,15 @@ export const FeatureBadge: FC<FeatureBadgeProps> = ({ name, containerStyle, size
 const getStyles = (size: number) =>
   StyleSheet.create({
     container: {
-      borderWidth: 1,
       display: 'flex',
+      borderWidth: 1.5,
       borderRadius: 999,
       width: size * 1.5,
       height: size * 1.5,
       alignItems: 'center',
       borderStyle: 'dashed',
       justifyContent: 'center',
+      backgroundColor: '#FAFAFA',
     },
     badge: {
       width: size,
