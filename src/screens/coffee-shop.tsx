@@ -3,10 +3,12 @@ import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
 import { CopyIcon } from '@/components/icons/copy'
+import { PlusIcon } from '@/components/icons/plus'
 import { useClipboard } from '@/hooks/use-clipboard'
 import { MapPinIcon } from '@/components/icons/map-pin'
 import { SafeArea } from '@/shared/components/safe-area'
 import { FeatureBadge } from '@/components/feature-badge'
+import { FloatingAction } from '@/components/floating-action'
 import { TiktokIcon } from '@/components/icons/socials/tiktok'
 import { FacebookIcon } from '@/components/icons/socials/facebook'
 import { InstagramIcon } from '@/components/icons/socials/instagram'
@@ -76,6 +78,10 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
           })}
         </View>
       </ScrollView>
+
+      <FloatingAction action={() => {}} style={styles.floatingAction}>
+        <PlusIcon width={32} height={32} color={styles.floatingAction.color} />
+      </FloatingAction>
     </SafeArea>
   )
 }
@@ -83,12 +89,14 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
 const styles = StyleSheet.create({
   safearea: {
     width: '100%',
-    height: '100%',
+    position: 'relative',
   },
   container: {
     rowGap: 32,
+    paddingTop: 32,
     display: 'flex',
-    paddingVertical: 32,
+    minHeight: '100%',
+    paddingBottom: 96,
     paddingHorizontal: 16,
   },
   header: {
@@ -158,5 +166,12 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: '#000',
+  },
+  floatingAction: {
+    bottom: 40,
+    color: 'white',
+    alignSelf: 'center',
+    position: 'absolute',
+    backgroundColor: 'green',
   },
 })
