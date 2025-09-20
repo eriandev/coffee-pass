@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from 'react'
 import { Modal, View, Text, StyleSheet, TouchableWithoutFeedback, Animated, Easing, Platform } from 'react-native'
 

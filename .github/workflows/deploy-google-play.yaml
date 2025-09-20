@@ -1,0 +1,51 @@
+name: Deploy to Google Play
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Ruby & Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Decode Keystore
+        run: |
+          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > android/app/my-release-key.keystore
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+
+      - name: Set Gradle signing env
+        run: |
+          echo "RELEASE_KEYSTORE=$GITHUB_WORKSPACE/android/app/my-release-key.keystore" >> $GITHUB_ENV
+          echo "RELEASE_KEYSTORE_PASSWORD=${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+          echo "RELEASE_KEY_ALIAS=${{ secrets.RELEASE_KEY_ALIAS }}" >> $GITHUB_ENV
+          echo "RELEASE_KEY_PASSWORD=${{ secrets.RELEASE_KEY_PASSWORD }}" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: |
+          cd android
+          bundle install
+
+      - name: Run Fastlane
+        run: |
+          cd android
+          echo '${{ secrets.GOOGLE_PLAY_JSON }}' > google-play.json
+          export GOOGLE_PLAY_JSON_FILE=$PWD/google-play.json
+          bundle exec fastlane deploy
