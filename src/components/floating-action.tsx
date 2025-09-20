@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { Animated, StyleSheet, View } from 'react-native'
 import type { GestureResponderEvent, StyleProp, ViewStyle } from 'react-native'
 
+import { colors } from '@/theme/values'
 import type { FC } from '@/shared/types'
 
 export interface FloatingActionProps {
@@ -17,7 +18,7 @@ export const FloatingAction: FC<FloatingActionProps> = ({ children, size = 64, s
 
   const handleResponderGrant = () => {
     Animated.timing(scaleValue, {
-      toValue: 0.9,
+      toValue: 0.95,
       duration: 150,
       useNativeDriver: true,
     }).start()
@@ -48,7 +49,12 @@ export const FloatingAction: FC<FloatingActionProps> = ({ children, size = 64, s
 export const getStyles = (size: number) => {
   return StyleSheet.create({
     container: {
+      borderWidth: 1,
       borderRadius: 999,
+      borderTopWidth: 0,
+      borderBottomWidth: 4,
+      borderColor: colors.btn.primary.border,
+      backgroundColor: colors.btn.primary.bg,
     },
     button: {
       width: size,

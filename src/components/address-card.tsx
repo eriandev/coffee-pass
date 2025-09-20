@@ -1,9 +1,11 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-import { MapPinIcon } from '@/components/icons/map-pin'
-import { useClipboard } from '@/hooks/use-clipboard'
+import { Button } from '@/components/button'
 import { CopyIcon } from '@/components/icons/copy'
-import { Link } from '@/components/link'
+import { CheckIcon } from '@/components/icons/check'
+import { useClipboard } from '@/hooks/use-clipboard'
+import { borders, colors, fonts } from '@/theme/values'
 import type { FC } from '@/shared/types'
 
 export interface AddressProps {
@@ -13,9 +15,19 @@ export interface AddressProps {
 
 export const AddressCard: FC<AddressProps> = ({ address, district }) => {
   const fullAddress = `${address}, ${district}`.trim()
-  const googleMapsPoint = 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+')
+  // const googleMapsPoint = 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+')
 
   const { copyToClipboard } = useClipboard()
+  const [isCoping, setIsCoping] = useState(false)
+
+  const handlePress = () => {
+    copyToClipboard(fullAddress)
+
+    if (isCoping) return
+
+    setIsCoping(true)
+    setTimeout(() => setIsCoping(false), 3000)
+  }
 
   return (
     <View key={address} style={styles.addressCard}>
@@ -25,12 +37,9 @@ export const AddressCard: FC<AddressProps> = ({ address, district }) => {
         </Text>
       </View>
       <View style={styles.addressActions}>
-        <Pressable onPress={() => copyToClipboard(fullAddress)}>
-          <CopyIcon color={styles.icon.color} />
-        </Pressable>
-        <Link to={googleMapsPoint}>
-          <MapPinIcon color={styles.icon.color} />
-        </Link>
+        <Button variant="outline" onPress={handlePress}>
+          {isCoping ? <CheckIcon color={styles.icon.color} /> : <CopyIcon color={styles.icon.color} />}
+        </Button>
       </View>
     </View>
   )
@@ -41,19 +50,19 @@ const styles = StyleSheet.create({
     padding: 20,
     minHeight: 32,
     display: 'flex',
-    borderWidth: 1.5,
     borderRadius: 20,
     flexDirection: 'row',
-    borderColor: '#000',
-    backgroundColor: '#FAFAFA',
+    borderWidth: borders.width.lg,
+    borderColor: colors.border.card,
+    backgroundColor: colors.bg.secondary,
   },
   addressInfo: {
-    width: '80%',
+    width: '85%',
     paddingRight: 12,
     justifyContent: 'center',
   },
   addressActions: {
-    width: '20%',
+    width: '15%',
     columnGap: 16,
     display: 'flex',
     alignItems: 'center',
@@ -61,9 +70,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   address: {
-    fontSize: 18,
+    ...fonts.bodyBase,
+    fontSize: fonts.sizes.lg,
   },
   icon: {
-    color: '#000',
+    color: colors.text.primary,
   },
 })

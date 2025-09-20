@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
+import { colors, fonts } from '@/theme/values'
 import { PlusIcon } from '@/components/icons/plus'
 import { AddressCard } from '@/components/address-card'
 import { SafeArea } from '@/shared/components/safe-area'
@@ -10,9 +11,9 @@ import { FeatureBadge } from '@/components/feature-badge'
 import { FloatingAction } from '@/components/floating-action'
 import { TiktokIcon } from '@/components/icons/socials/tiktok'
 import { FacebookIcon } from '@/components/icons/socials/facebook'
+import { AddVisitModal } from '@/components/modals/add-visit-modal'
 import { InstagramIcon } from '@/components/icons/socials/instagram'
 import type { AppStackParams } from '@/navigation/types'
-import { AddVisitModal } from '@/components/modals/add-visit-modal'
 
 const socialIcons = {
   instagram: <InstagramIcon />,
@@ -58,17 +59,14 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
 
         <View style={styles.pages}>
           {pages.map((page) => (
-            <Text key={page}>{page}</Text>
+            <Text key={page} style={styles.page}>
+              {page}
+            </Text>
           ))}
         </View>
       </ScrollView>
 
-      <FloatingAction
-        action={() => {
-          setShowModal(true)
-        }}
-        style={styles.floatingAction}
-      >
+      <FloatingAction style={styles.floatingAction} action={() => setShowModal(true)}>
         <PlusIcon width={32} height={32} color={styles.floatingAction.color} />
       </FloatingAction>
 
@@ -81,6 +79,7 @@ const styles = StyleSheet.create({
   safearea: {
     width: '100%',
     position: 'relative',
+    backgroundColor: colors.bg.primary,
   },
   container: {
     rowGap: 32,
@@ -89,7 +88,6 @@ const styles = StyleSheet.create({
     minHeight: '100%',
     paddingBottom: 96,
     paddingHorizontal: 16,
-    backgroundColor: '#F7F7F7',
   },
   header: {
     rowGap: 16,
@@ -99,12 +97,13 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     borderRadius: 999,
-    backgroundColor: 'green',
     marginHorizontal: 'auto',
+    backgroundColor: colors.btn.primary.bg,
   },
   title: {
-    fontSize: 28,
+    ...fonts.title,
     textAlign: 'center',
+    fontSize: fonts.sizes.hero,
   },
   socials: {
     columnGap: 16,
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FAFAFA',
+    backgroundColor: colors.bg.secondary,
   },
   badges: {
     rowGap: 8,
@@ -140,15 +139,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  page: {
+    ...fonts.bodyBase,
+  },
   addresses: {
     rowGap: 16,
     display: 'flex',
   },
   floatingAction: {
     bottom: 40,
-    color: 'white',
     alignSelf: 'center',
+    color: colors.white,
     position: 'absolute',
-    backgroundColor: 'green',
   },
 })

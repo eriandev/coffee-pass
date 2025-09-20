@@ -6,6 +6,9 @@ import type {
   IAutocompleteDropdownRef,
 } from 'react-native-autocomplete-dropdown'
 import type { RefObject } from 'react'
+
+import { borders, colors, fonts } from '@/theme/values'
+import { SearchIcon } from '@/components/icons/search'
 import type { FC } from '@/shared/types'
 
 export type AutoCompleteInputItem = AutocompleteDropdownItem
@@ -19,7 +22,7 @@ export const AutoCompleteInput: FC<AutoCompleteInputProps> = (props) => {
   const {
     debounce = 600,
     inputHeight = 50,
-    showClear = true,
+    showClear = false,
     useFilter = false,
     initialValue = '1',
     showChevron = false,
@@ -41,15 +44,18 @@ export const AutoCompleteInput: FC<AutoCompleteInputProps> = (props) => {
       showChevron={showChevron}
       closeOnBlur={closeOnBlur}
       initialValue={initialValue}
+      enableLoadingIndicator={false}
       textInputProps={{
         autoCorrect: false,
         autoCapitalize: 'none',
         style: styles.inputText,
         placeholder: 'Escribe más de 3 letras',
+        placeholderTextColor: colors.text.secondary,
       }}
       containerStyle={styles.container}
       inputContainerStyle={styles.inputContainer}
       rightButtonsContainerStyle={styles.rightButtonsContainer}
+      RightIconComponent={<SearchIcon color={colors.text.primary} />}
       suggestionsListContainerStyle={styles.suggestionsListContainer}
       renderItem={({ title }) => <Text style={styles.item}>{title}</Text>}
       EmptyResultComponent={<Text style={styles.item}>{emptyResultText}</Text>}
@@ -62,21 +68,30 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     flexShrink: 1,
-  },
-  item: {
-    color: '#FFF',
-    paddingVertical: 16,
     paddingHorizontal: 20,
   },
+  item: {
+    padding: 16,
+    ...fonts.bodyBold,
+    color: colors.text.primary,
+  },
   inputContainer: {
-    borderRadius: 24,
-    borderColor: '#E0E0E0',
+    paddingRight: 8,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 4,
+    color: colors.text.primary,
+    borderColor: colors.border.input,
+    backgroundColor: colors.bg.input,
+    borderRadius: borders.radius.base,
   },
   inputText: {
-    paddingLeft: 18,
+    paddingLeft: 16,
     borderRadius: 24,
-    color: '#06161C',
-    paddingHorizontal: 8,
+    ...fonts.bodyBase,
+    overlayColor: 'red',
+    color: colors.text.primary,
   },
   rightButtonsContainer: {
     right: 8,
@@ -84,6 +99,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   suggestionsListContainer: {
-    backgroundColor: '#383b42',
+    backgroundColor: colors.bg.input,
   },
 })

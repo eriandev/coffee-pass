@@ -6,6 +6,7 @@ import {
   type AutoCompleteInputItem,
 } from '@/components/auto-complete-input'
 
+import { colors } from '@/theme/values'
 import { coffeeShops } from '@/shared/data'
 import { useNavigate } from '@/navigation/navigate'
 import { SafeArea } from '@/shared/components/safe-area'
@@ -33,7 +34,7 @@ export const HomeScreen = () => {
   }, [autocompleteController, clearSuggestions])
 
   return (
-    <SafeArea>
+    <SafeArea style={styles.safearea}>
       <View style={styles.container}>
         <AutoCompleteInput
           direction="up"
@@ -51,9 +52,14 @@ export const HomeScreen = () => {
 }
 
 const styles = StyleSheet.create({
+  safearea: {
+    paddingBottom: 32,
+    backgroundColor: colors.bg.primary,
+  },
   container: {
     height: '100%',
     position: 'relative',
+    marginHorizontal: 16,
   },
   containerStyle: {
     left: 0,

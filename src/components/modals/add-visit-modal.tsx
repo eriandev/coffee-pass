@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
 import { Button } from '@/components/button'
@@ -26,7 +26,7 @@ export const AddVisitModal = ({ visible, onClose }: AddVisitlModalProps) => {
     const day = date.getDate()
     const month = date.getMonth() + 1
     const year = date.getFullYear()
-    console.log(`${day}/${month}/${year}`)
+    console.warn(`${day}/${month}/${year}`)
 
     onClose()
   }
@@ -44,15 +44,21 @@ export const AddVisitModal = ({ visible, onClose }: AddVisitlModalProps) => {
       <View>
         <DatePicker date={date} onDateChange={setDate} mode="date" locale="es" />
 
-        <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', columnGap: 16 }}>
-          <Button onPress={handleClose}>
-            <Text>Cancelar</Text>
-          </Button>
-          <Button onPress={handleAccept}>
-            <Text>Agregar</Text>
-          </Button>
+        <View style={styles.actions}>
+          <Button variant="secondary" label="Cancelar" onPress={handleClose} />
+          <Button variant="primary" label="Agregar" onPress={handleAccept} />
         </View>
       </View>
     </BaseModal>
   )
 }
+
+const styles = StyleSheet.create({
+  actions: {
+    columnGap: 16,
+    paddingTop: 32,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+})

@@ -2,6 +2,7 @@ import { Modal, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-n
 import type { ModalProps, StyleProp, ViewStyle } from 'react-native'
 
 import { CrossIcon } from '@/components/icons/cross'
+import { colors, fonts } from '@/theme/values'
 import { Button } from '@/components/button'
 import type { FC } from '@/shared/types'
 
@@ -38,8 +39,8 @@ export const BaseModal: FC<BaseModalProps> = ({
                   {title}
                 </Text>
                 {closeable && (
-                  <Button onPress={onClose}>
-                    <CrossIcon width={20} height={20} color={styles.header.color} />
+                  <Button variant="ghost" onPress={onClose}>
+                    <CrossIcon color={styles.header.color} />
                   </Button>
                 )}
               </View>
@@ -58,27 +59,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: colors.bg.overlay,
   },
   content: {
     padding: 24,
     width: '100%',
     borderRadius: 24,
     alignItems: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: colors.bg.primary,
   },
   header: {
     width: '100%',
-    color: '#000',
     paddingBottom: 8,
     alignItems: 'center',
     flexDirection: 'row',
+    color: colors.text.primary,
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: 24,
     width: 'auto',
-    fontWeight: 600,
-    color: '#06161C',
+    ...fonts.title,
+    color: colors.text.primary,
+    fontSize: fonts.sizes.title,
   },
 })

@@ -1,11 +1,12 @@
 import { Image, StyleSheet, View } from 'react-native'
 import type { ImageStyle, StyleProp, ViewStyle } from 'react-native'
 
-import peruvianCoffee from '@/assets/images/peruvian_coffee.webp'
-import veganOptions from '@/assets/images/vegan_options.webp'
-import petFriendly from '@/assets/images/pet_friendly.webp'
-import parkingLot from '@/assets/images/parking_lot.webp'
+import { colors } from '@/theme/values'
 import wifiZone from '@/assets/images/wifi_zone.webp'
+import parkingLot from '@/assets/images/parking_lot.webp'
+import petFriendly from '@/assets/images/pet_friendly.webp'
+import veganOptions from '@/assets/images/vegan_options.webp'
+import peruvianCoffee from '@/assets/images/peruvian_coffee.webp'
 import type { FC } from '@/shared/types'
 
 const featureBadges = {
@@ -44,7 +45,8 @@ const getStyles = (size: number) =>
       alignItems: 'center',
       borderStyle: 'dashed',
       justifyContent: 'center',
-      backgroundColor: '#FAFAFA',
+      borderColor: colors.text.primary,
+      backgroundColor: colors.bg.tertiary,
     },
     badge: {
       width: size,

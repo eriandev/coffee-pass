@@ -2,6 +2,18 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/nunito-400.ttf",
+      "sha1": "48cbca4ed805650bcaf95a404e661137ebd5d072"
+    },
+    {
+      "path": "src/assets/fonts/nunito_700.ttf",
+      "sha1": "aa9bec05daf141d1045eccc5dadcce8c2885c7eb"
+    },
+    {
+      "path": "src/assets/fonts/pt_serif_700.ttf",
+      "sha1": "8a53e3d0e3ecf0b5c5d928cf46feed8a7f03c9ea"
+    },
+    {
       "path": "src/assets/images/parking_lot.webp",
       "sha1": "b3bc6ab6979052026a74248d7c4cdd0798386596"
     },

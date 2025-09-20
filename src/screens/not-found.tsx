@@ -1,5 +1,6 @@
 import { StyleSheet, Text } from 'react-native'
 import { SafeArea } from '@/shared/components/safe-area'
+import { colors } from '@/theme/values'
 
 export const NotFoundScreen = () => {
   return (
@@ -16,9 +17,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
   message: {
-    color: 'black',
+    color: colors.black,
   },
 })
