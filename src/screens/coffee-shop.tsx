@@ -77,6 +77,7 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
 
 const styles = StyleSheet.create({
   safearea: {
+    flex: 1,
     width: '100%',
     position: 'relative',
     backgroundColor: colors.bg.primary,
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   page: {
-    ...fonts.bodyBase,
+    ...fonts.bodyBold,
   },
   addresses: {
     rowGap: 16,
