@@ -18,20 +18,18 @@ export type AutoCompleteInputProps = Omit<IAutocompleteDropdownProps, 'controlle
   emptyResultText?: string
 }
 
-export const AutoCompleteInput: FC<AutoCompleteInputProps> = (props) => {
-  const {
-    debounce = 600,
-    inputHeight = 50,
-    showClear = false,
-    useFilter = false,
-    initialValue = '1',
-    showChevron = false,
-    closeOnBlur = false,
-    controller: refController,
-    emptyResultText = 'Sin resultados',
-    ...restProps
-  } = props
-
+export const AutoCompleteInput: FC<AutoCompleteInputProps> = ({
+  debounce = 600,
+  inputHeight = 50,
+  showClear = false,
+  useFilter = false,
+  initialValue = '1',
+  showChevron = false,
+  closeOnBlur = false,
+  controller: refController,
+  emptyResultText = 'Sin resultados',
+  ...restProps
+}) => {
   return (
     <AutocompleteDropdown
       controller={(controller) => {
@@ -90,7 +88,6 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     borderRadius: 24,
     ...fonts.bodyBase,
-    overlayColor: 'red',
     color: colors.text.primary,
   },
   rightButtonsContainer: {
