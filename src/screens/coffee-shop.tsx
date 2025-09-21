@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     display: 'flex',
     minHeight: '100%',
-    paddingBottom: 96,
+    paddingBottom: 140,
     paddingHorizontal: 16,
   },
   header: {
