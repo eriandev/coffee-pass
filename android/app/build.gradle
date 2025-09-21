@@ -93,10 +93,15 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file(System.getenv("RELEASE_KEYSTORE"))
-            storePassword System.getenv("RELEASE_KEYSTORE_PASSWORD")
-            keyAlias System.getenv("RELEASE_KEY_ALIAS")
-            keyPassword System.getenv("RELEASE_KEY_PASSWORD")
+            def keystorePath = System.getenv("RELEASE_KEYSTORE") ?: "xxx"
+            def keystorePass = System.getenv("RELEASE_KEYSTORE_PASSWORD") ?: "xxx"
+            def keyAliasVal  = System.getenv("RELEASE_KEY_ALIAS") ?: "xxx"
+            def keyPassVal   = System.getenv("RELEASE_KEY_PASSWORD") ?: "xxx"
+
+            storeFile file(keystorePath)
+            storePassword keystorePass
+            keyAlias keyAliasVal
+            keyPassword keyPassVal
         }
     }
     buildTypes {
