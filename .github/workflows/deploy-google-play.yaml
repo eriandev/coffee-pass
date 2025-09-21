@@ -10,20 +10,32 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Set up JDK
+      - name: Use pnpm 🗜️
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.17.0
+          run_install: false
+
+      - name: Use Node 🐢
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.18.0
+          cache: 'pnpm'
+
+      - name: Install dependencies ⚙️
+        run: pnpm install --frozen-lockfile
+
+      - name: Make gradlew executable
+        run: chmod +x android/gradlew
+
+      - name: Set up JDK ☕
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: Install Ruby & Bundler
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
 
       - name: Decode Keystore
         run: |
@@ -38,14 +50,16 @@ jobs:
           echo "RELEASE_KEY_ALIAS=${{ secrets.RELEASE_KEY_ALIAS }}" >> $GITHUB_ENV
           echo "RELEASE_KEY_PASSWORD=${{ secrets.RELEASE_KEY_PASSWORD }}" >> $GITHUB_ENV
 
-      - name: Install dependencies
+      - name: Build Release AAB
         run: |
           cd android
-          bundle install
+          ./gradlew clean bundleRelease
 
-      - name: Run Fastlane
-        run: |
-          cd android
-          echo '${{ secrets.GOOGLE_PLAY_JSON }}' > google-play.json
-          export GOOGLE_PLAY_JSON_FILE=$PWD/google-play.json
-          bundle exec fastlane deploy
+      - name: Upload to Google Play (internal track)
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_JSON }}
+          packageName: dev.erian.coffeepass
+          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          track: internal
+          status: draft
