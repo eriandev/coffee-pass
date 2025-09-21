@@ -8,8 +8,7 @@ export interface LinkProps extends Omit<PressableProps, 'onPress'> {
 
 export const Link: FC<LinkProps> = ({ to: targetURL, children, ...restProps }) => {
   const handlePress = useCallback(async () => {
-    const supported = await Linking.canOpenURL(targetURL)
-    if (supported) await Linking.openURL(targetURL)
+    await Linking.openURL(targetURL)
   }, [targetURL])
 
   return (
