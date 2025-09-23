@@ -1,3 +1,4 @@
+import { colors } from '@/theme/values'
 import { HomeScreen } from '@/screens/home'
 import { NotFoundScreen } from '@/screens/not-found'
 import { CoffeeShopScreen } from '@/screens/coffee-shop'
@@ -10,7 +11,13 @@ export const screens: Screens = {
   },
   coffeeShop: {
     screen: CoffeeShopScreen,
-    options: { headerShown: false },
+    options: {
+      title: '',
+      headerShadowVisible: false,
+      headerStyle: {
+        backgroundColor: colors.bg.primary,
+      },
+    },
   },
   notFound: {
     screen: NotFoundScreen,
