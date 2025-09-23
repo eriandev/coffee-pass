@@ -42,7 +42,7 @@ export const AddVisitModal = ({ visible, onClose }: AddVisitlModalProps) => {
       onRequestClose={handleClose}
     >
       <View>
-        <DatePicker date={date} onDateChange={setDate} mode="date" locale="es" />
+        <DatePicker date={date} onDateChange={setDate} mode="date" locale="es" theme="light" />
 
         <View style={styles.actions}>
           <Button variant="secondary" label="Cancelar" onPress={handleClose} />
