@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown'
 import type {
   AutocompleteDropdownItem,
@@ -55,6 +55,7 @@ export const AutoCompleteInput: FC<AutoCompleteInputProps> = ({
       rightButtonsContainerStyle={styles.rightButtonsContainer}
       RightIconComponent={<SearchIcon color={colors.text.primary} />}
       suggestionsListContainerStyle={styles.suggestionsListContainer}
+      ItemSeparatorComponent={() => <View style={styles.separator} />}
       renderItem={({ title }) => <Text style={styles.item}>{title}</Text>}
       EmptyResultComponent={<Text style={styles.item}>{emptyResultText}</Text>}
       {...restProps}
@@ -72,6 +73,11 @@ const styles = StyleSheet.create({
     padding: 16,
     ...fonts.bodyBold,
     color: colors.text.primary,
+  },
+  separator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: colors.bg.secondary,
   },
   inputContainer: {
     paddingRight: 8,
