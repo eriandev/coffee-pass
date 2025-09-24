@@ -13,6 +13,8 @@ export interface AddVisitlModalProps {
 }
 
 export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModalProps) => {
+  const maximumDate = new Date()
+  const minimumDate = new Date('2020-01-01')
   const [date, setDate] = useState(new Date())
 
   const resetDate = () => {
@@ -39,12 +41,20 @@ export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModal
       transparent
       visible={visible}
       animationType="fade"
-      title="Agregar visita"
-      onClose={handleClose}
+      title="Agrega una visita"
       onRequestClose={handleClose}
+      onClose={handleClose}
     >
       <View>
-        <DatePicker date={date} onDateChange={setDate} mode="date" locale="es" theme="light" />
+        <DatePicker
+          date={date}
+          mode="date"
+          locale="es"
+          theme="light"
+          onDateChange={setDate}
+          minimumDate={minimumDate}
+          maximumDate={maximumDate}
+        />
 
         <View style={styles.actions}>
           <Button variant="secondary" label="Cancelar" onPress={handleClose} />
