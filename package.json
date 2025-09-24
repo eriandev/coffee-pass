@@ -59,6 +59,7 @@
     "typescript": "5.9.2"
   },
   "standard-version": {
+    "preset": "conventionalcommits",
     "releaseCommitMessageFormat": "release: v{{currentTag}}",
     "bumpFiles": [
       "package.json",
