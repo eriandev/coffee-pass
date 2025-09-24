@@ -3,9 +3,9 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
-import { colors, fonts } from '@/theme/values'
 import { PlusIcon } from '@/components/icons/plus'
 import { AddressCard } from '@/components/address-card'
+import { borders, colors, fonts } from '@/theme/values'
 import { SafeArea } from '@/shared/components/safe-area'
 import { FeatureBadge } from '@/components/feature-badge'
 import { FloatingAction } from '@/components/floating-action'
@@ -24,8 +24,10 @@ const socialIcons = {
 export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop']>
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
-  const { addresses, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } = params
+  const { addresses, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } =
+    params
 
+  const addressCount = addresses.length
   const [showModal, setShowModal] = useState(false)
 
   return (
@@ -49,6 +51,11 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
           {petFriendly && <FeatureBadge name="petFriendly" />}
           {parkingLot && <FeatureBadge name="parkingLot" />}
           {veganOptions && <FeatureBadge name="veganOptions" containerStyle={styles.badgeVeganOptions} />}
+        </View>
+
+        <View style={styles.tags}>
+          <Text></Text>
+          <Text style={styles.tag}>{addressCount} sede{addressCount > 1 ? 's' : ''}</Text>
         </View>
 
         <View style={styles.addresses}>
@@ -132,6 +139,18 @@ const styles = StyleSheet.create({
   },
   badgeVeganOptions: {
     paddingLeft: 8,
+  },
+  tags: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  tag: {
+    borderRadius: 12,
+    ...fonts.bodyBold,
+    paddingVertical: 4,
+    paddingHorizontal: 16,
+    borderWidth: borders.width.lg,
+    borderColor: colors.border.card,
   },
   pages: {
     columnGap: 8,
