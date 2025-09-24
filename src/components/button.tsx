@@ -7,15 +7,24 @@ import type { FC } from '@/shared/types'
 
 export interface ButtonProps {
   label?: string
+  square?: boolean
   compact?: boolean
   style?: StyleProp<ViewStyle>
   variant?: keyof typeof colors.btn
   onPress?: (event: GestureResponderEvent) => void
 }
 
-export const Button: FC<ButtonProps> = ({ children, compact = false, label, style, variant = 'primary', onPress }) => {
+export const Button: FC<ButtonProps> = ({
+  label,
+  style,
+  children,
+  square = false,
+  compact = false,
+  variant = 'primary',
+  onPress,
+}) => {
   const scaleAnim = useRef(new Animated.Value(1)).current
-  const styles = getStyles(compact, variant)
+  const styles = getStyles(compact, square, variant)
 
   const handlePressIn = () => {
     Animated.timing(scaleAnim, {
@@ -42,16 +51,16 @@ export const Button: FC<ButtonProps> = ({ children, compact = false, label, styl
   )
 }
 
-const getStyles = (isCompact: boolean, variant: ButtonProps['variant'] = 'primary') => {
+const getStyles = (isCompact: boolean, isSquare: boolean, variant: ButtonProps['variant'] = 'primary') => {
   return StyleSheet.create({
     button: {
       borderWidth: 2,
       borderRadius: 8,
-      paddingVertical: 8,
+      paddingVertical: 12,
       alignItems: 'center',
       borderBottomWidth: 4,
-      paddingHorizontal: 16,
       width: isCompact ? 'auto' : '100%',
+      paddingHorizontal: isSquare ? 12 : 16,
       borderColor: colors.btn[variant].border,
       backgroundColor: colors.btn[variant].bg,
     },
