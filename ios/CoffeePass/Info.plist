@@ -32,7 +32,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -49,9 +49,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>nunito_400.ttf</string>
 		<string>nunito_700.ttf</string>
 		<string>pt_serif_700.ttf</string>
-		<string>nunito-400.ttf</string>
 	</array>
 </dict>
 </plist>
