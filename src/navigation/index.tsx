@@ -12,6 +12,10 @@ export const AppNavigation = () => {
   const RootStack = createNativeStackNavigator<AppStackParams>({
     screens,
     initialRouteName: 'home',
+    screenOptions: {
+      gestureEnabled: true,
+      animation: 'slide_from_right',
+    },
   })
   const Navigation = createStaticNavigation(RootStack)
 
