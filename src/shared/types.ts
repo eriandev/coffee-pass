@@ -5,6 +5,7 @@ export type Nullable<T> = T | null | undefined
 export type Component<T = unknown> = ComponentType<T>
 export type FC<P = unknown> = (props: PropsWithChildren<P>) => JSXElement
 export type CoffeeShop = {
+  id: string
   name: string
   keys: string[]
   pages: number[]

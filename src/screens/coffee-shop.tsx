@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
+import { storage } from '@/shared/storage'
 import { PlusIcon } from '@/components/icons/plus'
 import { AddressCard } from '@/components/address-card'
 import { borders, colors, fonts } from '@/theme/values'
@@ -24,9 +25,11 @@ const socialIcons = {
 export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop']>
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
-  const { addresses, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } =
+  const { addresses, id, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } =
     params
 
+  const visitsList = storage.getVisits(id)
+  const timesVisited = visitsList.length
   const addressCount = addresses.length
   const [showModal, setShowModal] = useState(false)
 
@@ -54,8 +57,14 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
         </View>
 
         <View style={styles.tags}>
-          <Text></Text>
-          <Text style={styles.tag}>{addressCount} sede{addressCount > 1 ? 's' : ''}</Text>
+          <Text style={timesVisited > 0 ? styles.tag : undefined}>
+            {timesVisited
+              ? `Lo has visitado ${timesVisited ? `${timesVisited} ${timesVisited > 1 ? 'veces' : 'vez'}` : null}`
+              : null}
+          </Text>
+          <Text style={styles.tag}>
+            {addressCount} sede{addressCount > 1 ? 's' : null}
+          </Text>
         </View>
 
         <View style={styles.addresses}>
@@ -77,7 +86,7 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
         <PlusIcon width={32} height={32} color={styles.floatingAction.color} />
       </FloatingAction>
 
-      <AddVisitModal visible={showModal} onClose={() => setShowModal(false)} />
+      <AddVisitModal coffeeShopId={id} visible={showModal} onClose={() => setShowModal(false)} />
     </SafeArea>
   )
 }
@@ -142,7 +151,7 @@ const styles = StyleSheet.create({
   },
   tags: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   tag: {
     borderRadius: 12,

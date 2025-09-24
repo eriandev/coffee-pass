@@ -2,6 +2,7 @@ import type { CoffeeShop } from '@/shared/types'
 
 export const coffeeShops: CoffeeShop[] = [
   {
+    id: 'b99191f39076',
     name: 'Artidoro Rodríguez Café',
     wifiZone: true,
     parkingLot: false,
@@ -28,6 +29,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['artidoro rodríguez café', 'miraflores', 'artidorocoffee'],
   },
   {
+    id: '5eafc53a8780',
     name: 'Neira Café Lab',
     wifiZone: true,
     parkingLot: false,
@@ -70,6 +72,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['neira café lab', 'miraflores', 'san isidro', 'la victoria', 'chacarilla', 'neiracafelab'],
   },
   {
+    id: '29e0ca45bee3',
     name: 'Punto Café',
     wifiZone: true,
     parkingLot: false,
@@ -92,6 +95,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['punto café', 'miraflores', 'puntocafe_pe'],
   },
   {
+    id: '5695177f49d8',
     name: 'Amarena',
     wifiZone: true,
     parkingLot: false,
@@ -118,6 +122,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['amarena', 'miraflores', 'amarena.___'],
   },
   {
+    id: '73e0235b7c2f',
     name: 'Ok Café',
     wifiZone: true,
     parkingLot: false,
@@ -140,6 +145,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['ok café', 'miraflores', 'okcafe__________'],
   },
   {
+    id: 'c72f84b56881',
     name: 'Senda Cafe',
     wifiZone: true,
     parkingLot: false,
@@ -162,6 +168,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['senda cafe', 'miraflores', 'sendacafe'],
   },
   {
+    id: 'a07c14b03acd',
     name: 'Praga Café',
     wifiZone: true,
     parkingLot: false,
@@ -184,6 +191,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['praga café', 'miraflores', 'pragacafe_pe'],
   },
   {
+    id: '434d8036f7ec',
     name: 'Taruka Coffee Roots',
     wifiZone: true,
     parkingLot: false,
@@ -206,6 +214,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['taruka coffee roots', 'miraflores', 'taruka.coffee'],
   },
   {
+    id: '1bb23b769748',
     name: 'Ursa Coffee Roasters',
     wifiZone: true,
     parkingLot: true,
@@ -228,6 +237,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['ursa coffee roasters', 'miraflores', 'ursacoffeeperu'],
   },
   {
+    id: 'b6cd74019a15',
     name: 'Cardinal Café',
     wifiZone: true,
     parkingLot: true,
@@ -250,6 +260,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['cardinal café', 'miraflores', 'cardinalcafe.pe'],
   },
   {
+    id: '419d7a9fc8cb',
     name: 'Parque Sol Terraza Café',
     wifiZone: true,
     parkingLot: false,
@@ -272,6 +283,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['parque sol terraza café', 'miraflores', 'parquesolterrazacafe'],
   },
   {
+    id: '3e5c0c38a225',
     name: 'Pache Café',
     wifiZone: true,
     parkingLot: false,
@@ -298,6 +310,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['pache café', 'barranco', 'miraflores', 'pachecafe'],
   },
   {
+    id: '8b1c1cb23b4c',
     name: 'Caleta Dolsa Coffee',
     wifiZone: true,
     parkingLot: false,
@@ -324,6 +337,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['caleta dolsa coffee', 'barranco', 'san isidro', 'caleta.dolsacoffee'],
   },
   {
+    id: 'd883c54599b0',
     name: 'Ciclos Café',
     wifiZone: false,
     parkingLot: false,
@@ -346,6 +360,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['ciclos café', 'barranco', 'cicloscafe'],
   },
   {
+    id: 'c591aa387473',
     name: 'MONOTONO COFFEE',
     wifiZone: true,
     parkingLot: true,
@@ -368,6 +383,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['monotono coffee', 'barranco', 'monotonocoffee'],
   },
   {
+    id: 'f6ed4f96d3ff',
     name: 'La Teoría de los 6 Cafés',
     wifiZone: true,
     parkingLot: false,
@@ -398,6 +414,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['la teoría de los 6 cafés', 'san isidro', 'miraflores', 'teoriadelos6cafes'],
   },
   {
+    id: '3067a9b254c1',
     name: 'Café Gianfranco',
     wifiZone: true,
     parkingLot: true,
@@ -420,6 +437,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['café gianfranco', 'san isidro', 'cafegianfranco'],
   },
   {
+    id: 'bf7878814f00',
     name: 'Don Salazar',
     wifiZone: true,
     parkingLot: false,
@@ -480,6 +498,7 @@ export const coffeeShops: CoffeeShop[] = [
     ],
   },
   {
+    id: '0c7f66071bd7',
     name: 'The Coffee',
     wifiZone: true,
     parkingLot: false,
@@ -555,6 +574,7 @@ export const coffeeShops: CoffeeShop[] = [
     ],
   },
   {
+    id: 'a5312b3f8cda',
     name: 'Kaldis Specialty Coffee',
     wifiZone: true,
     parkingLot: false,
@@ -585,6 +605,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['kaldis specialty coffee', 'miraflores', 'san isidro', 'kaldiscoffeetea'],
   },
   {
+    id: '31f583e171f0',
     name: 'The Coffee Road',
     wifiZone: true,
     parkingLot: true,
@@ -607,6 +628,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['the coffee road', 'san isidro', 'thecoffeeroad'],
   },
   {
+    id: 'ce510a418acd',
     name: 'Origen Tostadores de Café',
     wifiZone: true,
     parkingLot: true,
@@ -637,6 +659,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['origen tostadores de café', 'pueblo libre', 'surquillo', 'lince', 'origentostadoresdecafe'],
   },
   {
+    id: '3a961c34ab7a',
     name: 'Comadre Café',
     wifiZone: true,
     parkingLot: false,
@@ -659,6 +682,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['comadre café', 'pueblo libre', 'miraflores', 'comadrecafe.pe'],
   },
   {
+    id: 'd2ea1baedb9e',
     name: 'Cordillera 27 Café',
     wifiZone: true,
     parkingLot: true,
@@ -681,6 +705,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['cordillera 27 café', 'pueblo libre', 'cordillera27cafe'],
   },
   {
+    id: '321d840bc252',
     name: 'Barra Cafeteadora',
     wifiZone: false,
     parkingLot: true,
@@ -703,6 +728,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['barra cafeteadora', 'pueblo libre', 'barracafeteadora'],
   },
   {
+    id: '4fff6ad932a2',
     name: 'Abisinia Café',
     wifiZone: false,
     parkingLot: true,
@@ -725,6 +751,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['abisinia café', 'pueblo libre', 'abisinia.co'],
   },
   {
+    id: 'bc5e25f37ed5',
     name: 'Clamore Café',
     wifiZone: true,
     parkingLot: true,
@@ -751,6 +778,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['clamore café', 'jesús maría', 'clamorecafe'],
   },
   {
+    id: '236a4ac75a4f',
     name: 'Cosecha',
     wifiZone: true,
     parkingLot: false,
@@ -773,6 +801,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['cosecha', 'jesús maría', 'cosecha.peru'],
   },
   {
+    id: 'f20cb08a8da9',
     name: 'Yorifer Café',
     wifiZone: true,
     parkingLot: true,
@@ -795,6 +824,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['yorifer café', 'jesús maría', 'yorifer.cafe'],
   },
   {
+    id: '21c3afb7ec5e',
     name: 'Bocanada',
     wifiZone: true,
     parkingLot: true,
@@ -817,6 +847,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['bocanada', 'santiago de surco', 'bocanadaperu'],
   },
   {
+    id: 'cea1b7dca74a',
     name: 'Cabina Lima',
     wifiZone: true,
     parkingLot: true,
@@ -839,6 +870,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['cabina lima', 'santiago de surco', 'cabinalima_'],
   },
   {
+    id: 'de5f5409600c',
     name: 'Amauta Coffee',
     wifiZone: true,
     parkingLot: true,
@@ -869,6 +901,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['amauta coffee', 'miraflores', 'surco', 'amautacoffee'],
   },
   {
+    id: '3d5f0e2942ce',
     name: 'Frecuente',
     wifiZone: true,
     parkingLot: false,
@@ -891,6 +924,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['frecuente', 'surquillo', 'frecuente.pe'],
   },
   {
+    id: '5254dc1cb779',
     name: "D'Sala Caffè",
     wifiZone: true,
     parkingLot: false,
@@ -921,6 +955,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ["d'sala caffè", 'surquillo', 'magdalena', 'san isidro', 'dsalacaffe'],
   },
   {
+    id: '87508b569b76',
     name: 'Oriunda Cafetería Organica',
     wifiZone: true,
     parkingLot: false,
@@ -943,6 +978,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['oriunda cafetería organica', 'surquillo', 'oriundacafeteria'],
   },
   {
+    id: 'c4c3992e4afe',
     name: 'SinMigajas',
     wifiZone: true,
     parkingLot: true,
@@ -965,6 +1001,7 @@ export const coffeeShops: CoffeeShop[] = [
     keys: ['sinmigajas', 'san borja', 'sinmigajasperu'],
   },
   {
+    id: 'bf861ac6ceef',
     name: 'Violet Cafe Lab',
     wifiZone: true,
     parkingLot: false,
