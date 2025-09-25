@@ -46,7 +46,7 @@ const getStyles = (size: number) =>
       borderStyle: 'dashed',
       justifyContent: 'center',
       borderColor: colors.text.primary,
-      backgroundColor: colors.bg.tertiary,
+      backgroundColor: colors.bg.primary,
     },
     badge: {
       width: size,

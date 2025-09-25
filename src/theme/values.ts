@@ -20,7 +20,6 @@ export const colors = {
   bg: {
     primary: '#F1DFBE',
     secondary: '#E5CEA2',
-    tertiary: '#F2E3C6',
     input: '#F1F0E4',
     overlay: 'rgba(0,0,0,0.5)',
   },
