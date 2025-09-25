@@ -32,25 +32,20 @@ export const colors = {
       border: '#777935',
     },
     secondary: {
-      bg: '#D9C59F',
-      text: '#7e612f',
-      border: '#D9C59F',
-    },
-    outline: {
       bg: '#F2E3C6',
-      text: '#61450f',
-      border: '#B29A72',
+      text: '#61450F',
+      border: '#B39A73',
     },
     ghost: {
       bg: 'transparent',
-      text: '#61450f',
+      text: '#61450F',
       border: 'transparent',
     },
   },
 
   border: {
-    input: '#B39A72',
-    card: '#B59C75',
+    input: '#B39A73',
+    card: '#B39A73',
   },
 
   text: {

@@ -37,7 +37,7 @@ export const AddressCard: FC<AddressProps> = ({ address, district }) => {
         </Text>
       </View>
       <View style={styles.addressActions}>
-        <Button square variant="outline" onPress={handlePress}>
+        <Button square variant="secondary" onPress={handlePress}>
           {isCoping ? <CheckIcon color={styles.icon.color} /> : <CopyIcon color={styles.icon.color} />}
         </Button>
       </View>
