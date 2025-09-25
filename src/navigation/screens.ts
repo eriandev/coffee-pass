@@ -14,6 +14,7 @@ export const screens: Screens = {
     options: {
       title: '',
       headerShadowVisible: false,
+      headerTintColor: colors.text.primary,
       headerStyle: {
         backgroundColor: colors.bg.primary,
       },
