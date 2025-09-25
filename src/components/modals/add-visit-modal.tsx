@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
+import { colors } from '@/theme/values'
 import { storage } from '@/shared/storage'
 import { Button } from '@/components/button'
 import { BaseModal } from '@/components/modals/base-modal'
@@ -37,13 +38,11 @@ export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModal
 
   return (
     <BaseModal
-      closeable
       transparent
       visible={visible}
       animationType="fade"
       title="Agrega una visita"
       onRequestClose={handleClose}
-      onClose={handleClose}
     >
       <View>
         <DatePicker
@@ -54,6 +53,7 @@ export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModal
           onDateChange={setDate}
           minimumDate={minimumDate}
           maximumDate={maximumDate}
+          dividerColor={colors.text.primary}
         />
 
         <View style={styles.actions}>

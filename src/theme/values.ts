@@ -45,6 +45,7 @@ export const colors = {
   border: {
     input: '#B39A73',
     card: '#B39A73',
+    modal: '#B39A73',
   },
 
   text: {

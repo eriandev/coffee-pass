@@ -64,8 +64,11 @@ const styles = StyleSheet.create({
   content: {
     padding: 24,
     width: '100%',
+    borderWidth: 2,
     borderRadius: 24,
     alignItems: 'center',
+    borderBottomWidth: 4,
+    borderColor: colors.border.modal,
     backgroundColor: colors.bg.primary,
   },
   header: {
