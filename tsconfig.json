@@ -1,12 +1,45 @@
 {
-  "extends": "@react-native/typescript-config",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React Native (Strict)",
   "compilerOptions": {
-    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "lib": [
+      "es2019",
+      "es2020.bigint",
+      "es2020.date",
+      "es2020.number",
+      "es2020.promise",
+      "es2020.string",
+      "es2020.symbol.wellknown",
+      "es2021.promise",
+      "es2021.string",
+      "es2021.weakref",
+      "es2022.array",
+      "es2022.object",
+      "es2022.string"
+    ],
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "jsx": "react-native",
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    "resolvePackageJsonImports": false,
+    "allowSyntheticDefaultImports": true,
+    // Causes issues with package.json "exports"
+    "forceConsistentCasingInFileNames": false,
+    "customConditions": ["react-native-strict-api", "react-native"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "exclude": ["**/node_modules","**/Pods/**"]
 }
