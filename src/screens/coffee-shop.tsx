@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import type { StaticScreenProps } from '@react-navigation/native'
 
 import { Link } from '@/components/link'
 import { storage } from '@/shared/storage'
@@ -15,8 +14,7 @@ import { FacebookIcon } from '@/components/icons/socials/facebook'
 import { AddVisitModal } from '@/components/modals/add-visit-modal'
 import { InstagramIcon } from '@/components/icons/socials/instagram'
 import { PlaceInfoModal } from '@/components/modals/place-info-modal'
-import type { AppStackParams } from '@/navigation/types'
-import type { CoffeeShopPlace } from '@/shared/types'
+import type { CoffeeShopPlace, ScreenProps } from '@/shared/types'
 
 const socialIcons = {
   instagram: <InstagramIcon />,
@@ -24,8 +22,7 @@ const socialIcons = {
   tiktok: <TiktokIcon />,
 } as const
 
-export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop']>
-export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
+export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
   const { params } = route
   const {
     id,

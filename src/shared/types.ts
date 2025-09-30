@@ -1,9 +1,13 @@
+import type { StaticScreenProps } from '@react-navigation/native'
 import type { ComponentType, JSX, PropsWithChildren } from 'react'
+
+import type { AppStackParams } from '@/navigation/types'
 
 export type JSXElement = JSX.Element
 export type Nullable<T> = T | null | undefined
 export type Component<T = unknown> = ComponentType<T>
 export type FC<P = unknown> = (props: PropsWithChildren<P>) => JSXElement
+export type ScreenProps<T extends keyof AppStackParams> = StaticScreenProps<AppStackParams[T]>
 export type CoffeeShop = {
   id: string
   name: string
