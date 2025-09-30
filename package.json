@@ -1,6 +1,6 @@
 {
   "name": "coffee-pass",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "scripts": {
     "ios": "react-native run-ios --port 8082",

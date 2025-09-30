@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/eriandev/coffee-pass/compare/v0.3.0...v0.3.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* correct text colors on the `coffe-shop` screen ([57acc9e](https://github.com/eriandev/coffee-pass/commit/57acc9ef74cd41b3032ba6f511a0cb82b41a9bc6))
+* correct the saving of the visit dates ([25539f6](https://github.com/eriandev/coffee-pass/commit/25539f6bf0adb5b81524571bda687f89dda1ec48))
+* fits vertical space when using 'hide notch' features on some devices ([5d7879b](https://github.com/eriandev/coffee-pass/commit/5d7879b52735feb6329fdc5c97e7836308bc4e2f))
+* fix schedules width ([a405383](https://github.com/eriandev/coffee-pass/commit/a40538358b3e014cb43ff40d3ea847c2d2edb0b1))
+
 ## [0.3.0](https://github.com/eriandev/coffee-pass/compare/v0.2.0...v0.3.0) (2025-09-30)
 
 
