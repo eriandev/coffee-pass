@@ -1,13 +1,14 @@
 import { useCallback, useRef } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import {
   AutoCompleteInput,
   AutoCompleteInputController,
   type AutoCompleteInputItem,
 } from '@/components/auto-complete-input'
 
-import { colors } from '@/theme/values'
+import { version } from '@/shared/consts'
 import { coffeeShops } from '@/shared/data'
+import { colors, fonts } from '@/theme/values'
 import { useNavigate } from '@/navigation/navigate'
 import { SafeArea } from '@/shared/components/safe-area'
 import { useSuggestions } from '@/hooks/use-suggestions'
@@ -47,6 +48,7 @@ export const HomeScreen = () => {
             onSelectItem={onSelectItem}
             onClear={onClear}
           />
+          <Text style={styles.version}>v{version}</Text>
         </View>
       </SafeArea>
     </View>
@@ -68,5 +70,13 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     position: 'absolute',
+  },
+  version: {
+    right: 4,
+    bottom: 58,
+    fontSize: 10,
+    ...fonts.bodyBase,
+    position: 'absolute',
+    color: colors.text.primary,
   },
 })
