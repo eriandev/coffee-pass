@@ -17,13 +17,12 @@ import { PlaceInfoModal } from '@/components/modals/place-info-modal'
 import type { CoffeeShopPlace, ScreenProps } from '@/shared/types'
 
 const socialIcons = {
-  instagram: <InstagramIcon />,
-  facebook: <FacebookIcon />,
-  tiktok: <TiktokIcon />,
+  instagram: <InstagramIcon color={colors.text.primary} />,
+  facebook: <FacebookIcon color={colors.text.primary} />,
+  tiktok: <TiktokIcon color={colors.text.primary} />,
 } as const
 
 export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
-  const { params } = route
   const {
     id,
     name,
@@ -36,7 +35,7 @@ export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
     veganOptions,
     wifiZone,
     schedules,
-  } = params
+  } = route.params
 
   const visitsList = storage.getVisits(id)
   const timesVisited = visitsList.length
@@ -189,6 +188,7 @@ const styles = StyleSheet.create({
     ...fonts.bodyBold,
     paddingVertical: 4,
     paddingHorizontal: 16,
+    color: colors.text.primary,
     borderWidth: borders.width.lg,
     borderColor: colors.border.card,
   },
