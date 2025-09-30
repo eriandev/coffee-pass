@@ -1,5 +1,5 @@
 import { Modal, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
-import type { ModalProps, StyleProp, ViewStyle } from 'react-native'
+import type { ModalProps, StyleProp, TextStyle, ViewStyle } from 'react-native'
 
 import { CrossIcon } from '@/components/icons/cross'
 import { colors, fonts } from '@/theme/values'
@@ -14,6 +14,7 @@ type ModalPropsPicked = Pick<
 export interface BaseModalProps extends ModalPropsPicked {
   title: string
   closeable?: boolean
+  titleStyle?: StyleProp<TextStyle>
   overlayStyle?: StyleProp<ViewStyle>
   onClose?: () => void
 }
@@ -22,6 +23,7 @@ export const BaseModal: FC<BaseModalProps> = ({
   style,
   title,
   children,
+  titleStyle,
   overlayStyle,
   closeable = false,
   onClose = () => {},
@@ -35,7 +37,7 @@ export const BaseModal: FC<BaseModalProps> = ({
           <TouchableWithoutFeedback>
             <View style={[styles.content, style]} onLayout={onLayout}>
               <View style={styles.header}>
-                <Text numberOfLines={1} style={styles.title}>
+                <Text numberOfLines={1} style={[styles.title, titleStyle]}>
                   {title}
                 </Text>
                 {closeable && (

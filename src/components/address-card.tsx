@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 import { Button } from '@/components/button'
 import { CopyIcon } from '@/components/icons/copy'
@@ -9,14 +9,11 @@ import { borders, colors, fonts } from '@/theme/values'
 import type { FC } from '@/shared/types'
 
 export interface AddressProps {
-  address: string
-  district: string
+  fullAddress: string
+  onPress?: () => void
 }
 
-export const AddressCard: FC<AddressProps> = ({ address, district }) => {
-  const fullAddress = `${address}, ${district}`.trim()
-  // const googleMapsPoint = 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+')
-
+export const AddressCard: FC<AddressProps> = ({ fullAddress, onPress }) => {
   const { copyToClipboard } = useClipboard()
   const [isCoping, setIsCoping] = useState(false)
 
@@ -30,18 +27,16 @@ export const AddressCard: FC<AddressProps> = ({ address, district }) => {
   }
 
   return (
-    <View key={address} style={styles.addressCard}>
+    <Pressable style={styles.addressCard} onPress={onPress}>
       <View style={styles.addressInfo}>
-        <Text style={styles.address}>
-          {address}, {district}
-        </Text>
+        <Text style={styles.address}>{fullAddress}</Text>
       </View>
       <View style={styles.addressActions}>
         <Button square variant="secondary" onPress={handlePress}>
           {isCoping ? <CheckIcon color={styles.icon.color} /> : <CopyIcon color={styles.icon.color} />}
         </Button>
       </View>
-    </View>
+    </Pressable>
   )
 }
 

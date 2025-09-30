@@ -9,7 +9,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '15:00' },
+    ],
+    places: [
       {
         address: 'Calle Tarata 285',
         district: 'Miraflores',
@@ -36,25 +45,52 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '20:00' },
+      { weekday: 'domingo', openingTime: '7:00', closingTime: '20:00' },
+    ],
+    places: [
       {
-        address: 'Enrique Palacios 1074',
+        address: 'Calle Enrique Palacios 1074',
         district: 'Miraflores',
       },
       {
-        address: 'Victor Maurtua 150',
+        address: 'Calle Victor Maurtua 150',
         district: 'San Isidro',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'martes', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'miércoles', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'jueves', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'viernes', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'sábado', openingTime: '7:00', closingTime: '19:00' },
+          { weekday: 'domingo', openingTime: '7:00', closingTime: '19:00' },
+        ],
       },
       {
-        address: '2 de Mayo 1230',
+        address: 'Av. 2 de Mayo 1230',
         district: 'San Isidro',
       },
       {
         address: 'Torre Interbank',
         district: 'La Victoria',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'martes', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'miércoles', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'jueves', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'viernes', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'sábado', openingTime: '8:00', closingTime: '18:00' },
+          { weekday: 'domingo', openingTime: '8:00', closingTime: '18:00' },
+        ],
       },
       {
-        address: 'Av Caminos del Inca 1110',
+        address: 'Av. Caminos del Inca 1110',
         district: 'Chacarilla',
       },
       {
@@ -79,7 +115,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '19:30' },
+      { weekday: 'domingo', openingTime: '8:30', closingTime: '18:00' },
+    ],
+    places: [
       {
         address: 'Calle Piura 1251',
         district: 'Miraflores',
@@ -102,7 +147,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Av. Mariscal La Mar 438',
         district: 'Miraflores',
@@ -129,7 +183,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '20:00' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '20:00' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '20:00' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '20:00' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '20:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'domingo', openingTime: '8:30', closingTime: '18:00' },
+    ],
+    places: [
       {
         address: 'Av. Mariscal La Mar 882',
         district: 'Miraflores',
@@ -152,7 +215,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'domingo', openingTime: '7:00', closingTime: '22:00' },
+    ],
+    places: [
       {
         address: 'Calle Alcanfores 348',
         district: 'Miraflores',
@@ -175,7 +247,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '20:00' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '19:00' },
+    ],
+    places: [
       {
         address: 'Calle Jose Toribio Polo 367',
         district: 'Miraflores',
@@ -198,9 +279,10 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    places: [
       {
         address: 'Grimaldo del Solar 265',
+        temporarilyClosed: true,
         district: 'Miraflores',
       },
     ],
@@ -221,9 +303,18 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '20:00' },
+    ],
+    places: [
       {
-        address: 'Alcanfores 183',
+        address: 'Calle Alcanfores 183',
         district: 'Miraflores',
       },
     ],
@@ -244,7 +335,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'sábado', openingTime: '7:30', closingTime: '19:30' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '13:00' },
+    ],
+    places: [
       {
         address: 'Av. Angamos Oeste 567-A',
         district: 'Miraflores',
@@ -267,7 +367,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Calle Piura 498',
         district: 'Miraflores',
@@ -290,7 +399,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '7:30', closingTime: '20:00' },
+    ],
+    places: [
       {
         address: 'Av. Miguel Grau 1520',
         district: 'Barranco',
@@ -317,7 +435,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '7:00', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Av. San Martín 223',
         district: 'Barranco',
@@ -344,7 +471,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'martes', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'miércoles', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'jueves', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'viernes', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'sábado', openingTime: '9:00', closingTime: '20:00' },
+      { weekday: 'domingo', openingTime: '14:00', closingTime: '20:00' },
+    ],
+    places: [
       {
         address: 'Jr. Colina 111',
         district: 'Barranco',
@@ -367,7 +503,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '20:30' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '18:00' },
+    ],
+    places: [
       {
         address: 'Jr. Fedelli 103',
         district: 'Barranco',
@@ -390,7 +535,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Camelias 763',
         district: 'San Isidro',
@@ -421,7 +566,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'sábado', openingTime: '7:30', closingTime: '21:30' },
+      { weekday: 'domingo', openingTime: '8:30', closingTime: '21:30' },
+    ],
+    places: [
       {
         address: 'Av. Javier Prado Oeste 705',
         district: 'San Isidro',
@@ -444,38 +598,109 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Calle Las Camelias 185',
         district: 'San Isidro',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'martes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'miércoles', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'jueves', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'viernes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'sábado', openingTime: '9:00', closingTime: '23:00' },
+          { weekday: 'domingo', openingTime: '9:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Jr. Luis Sánchez Cerro 2098',
         district: 'Jesús María',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '7:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '7:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '7:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '7:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '7:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '7:00', closingTime: '18:00' },
+        ],
       },
       {
         address: 'Tottus Av. La Fontana 810',
         district: 'La Molina',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '8:00', closingTime: '22:00' },
+          { weekday: 'domingo', openingTime: '8:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Boulevard Puntamar KM 42',
         district: 'Punta Hermosa',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'domingo', openingTime: '10:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Av. Gral Salaverry 2370',
         district: 'Jesús María',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'martes', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'miércoles', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'jueves', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'viernes', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'sábado', openingTime: '10:00', closingTime: '23:00' },
+          { weekday: 'domingo', openingTime: '10:00', closingTime: '23:00' },
+        ],
       },
       {
         address: 'Av. Jorge Chavez 148, Cruce Av. Pardo con Comandante Espinar',
         district: 'Miraflores',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'martes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'miércoles', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'jueves', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'viernes', openingTime: '7:00', closingTime: '23:00' },
+          { weekday: 'sábado', openingTime: '9:00', closingTime: '23:00' },
+          { weekday: 'domingo', openingTime: '9:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Av. Javier Prado Este 4200',
         district: 'Surco',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '10:00', closingTime: '22:00' },
+          { weekday: 'domingo', openingTime: '10:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Av. de la Marina 2000',
         district: 'San Miguel',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'martes', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'miércoles', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'jueves', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'viernes', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'sábado', openingTime: '9:00', closingTime: '20:00' },
+          { weekday: 'domingo', openingTime: '9:00', closingTime: '20:00' },
+        ],
       },
     ],
     socials: [
@@ -505,38 +730,81 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '20:30' },
+    ],
+    places: [
       {
         address: 'Av. República de Colombia 729',
         district: 'San Isidro',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-San-Isidro/menu',
       },
       {
         address: 'Av. Dos de Mayo 219',
         district: 'San Isidro',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-av-dos-de-mayo/menu',
       },
       {
         address: 'Av. Javier Prado Este 4200',
         district: 'Santiago de Surco',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-jockey-plaza-lima/menu',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'domingo', openingTime: '9:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Calle Porta 118',
         district: 'Miraflores',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-miraflores/menu',
       },
       {
         address: 'Av. Circunvalación del Golf los Incas 170',
         district: 'Santiago de Surco',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-el-golf/menu',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '7:00', closingTime: '20:30' },
+          { weekday: 'martes', openingTime: '7:00', closingTime: '20:30' },
+          { weekday: 'miércoles', openingTime: '7:00', closingTime: '20:30' },
+          { weekday: 'jueves', openingTime: '7:00', closingTime: '20:30' },
+          { weekday: 'viernes', openingTime: '7:00', closingTime: '20:30' },
+          { weekday: 'sábado', openingTime: '7:00', closingTime: '16:00' },
+        ],
       },
       {
         address: 'Av. Almirante Miguel Grau 1130',
         district: 'Barranco',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-barranco/menu',
       },
       {
         address: 'Boulevard Puntamar Km 42 Panamericana Sur',
         district: 'Punta Hermosa',
+        placeMenuLink: 'https://thecoffee.jp/shortcut/peru/lima/the-coffee-punta-hermosa-puntamar/menu',
+        placeSchedules: [
+          { weekday: 'lunes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'martes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'miércoles', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'jueves', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'viernes', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'sábado', openingTime: '9:00', closingTime: '22:00' },
+          { weekday: 'domingo', openingTime: '9:00', closingTime: '22:00' },
+        ],
       },
       {
         address: 'Av. General Salaverry 2370',
         district: 'Jesús María',
+        commingSoon: true,
       },
       {
         address: 'Av. El Sol 455',
@@ -581,7 +849,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '22:00' },
+      { weekday: 'domingo', openingTime: '7:00', closingTime: '22:00' },
+    ],
+    places: [
       {
         address: 'Calle Gral Recavarren 598',
         district: 'Miraflores',
@@ -612,7 +889,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'domingo', openingTime: '13:00', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Av. Prescott 365',
         district: 'San Isidro',
@@ -635,7 +921,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: false,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '22:00' },
+    ],
+    places: [
       {
         address: 'Av. Simón Bolívar 1199',
         district: 'Pueblo Libre',
@@ -666,7 +961,17 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: false,
-    addresses: [
+    menuLink: 'https://drive.google.com/file/d/1uk_jxLQY7LjHtwkaCvEwAmEt7hFqWPWV/view',
+    schedules: [
+      { weekday: 'lunes', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'martes', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'miércoles', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'jueves', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'viernes', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'sábado', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '??:??' },
+    ],
+    places: [
       {
         address: 'Av. Manuel Cipriano Dulanto 1614',
         district: 'Pueblo Libre',
@@ -689,7 +994,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Av. Parque el Carmen 1216',
         district: 'Pueblo Libre',
@@ -712,7 +1017,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: false,
-    addresses: [
+    places: [
       {
         address: 'Jr. Arrieta 127',
         district: 'Pueblo Libre',
@@ -735,7 +1040,15 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '9:30', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Av. Rodriguez de Mendoza 245',
         district: 'Pueblo Libre',
@@ -758,7 +1071,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'martes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'miércoles', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'jueves', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'viernes', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'sábado', openingTime: '7:00', closingTime: '21:30' },
+      { weekday: 'domingo', openingTime: '7:00', closingTime: '21:30' },
+    ],
+    places: [
       {
         address: 'Av. Arenales 471',
         district: 'Jesús María',
@@ -785,7 +1107,8 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    menuLink: 'https://drive.google.com/file/d/1j2SGEu5glAitn_oo-gmm2Gt0CHg8CE7z/view',
+    places: [
       {
         address: 'Av. Horacio Urteaga 1180',
         district: 'Jesús María',
@@ -808,7 +1131,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'domingo', openingTime: '8:00', closingTime: '23:00' },
+    ],
+    places: [
       {
         address: 'Av. Húsares de Junín 425',
         district: 'Jesús María',
@@ -831,7 +1163,15 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'martes', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'miércoles', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'jueves', openingTime: '8:00', closingTime: '22:00' },
+      { weekday: 'viernes', openingTime: '8:00', closingTime: '23:00' },
+      { weekday: 'sábado', openingTime: '8:00', closingTime: '23:00' },
+    ],
+    places: [
       {
         address: 'El Polo 480',
         district: 'Santiago de Surco',
@@ -854,7 +1194,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'martes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'miércoles', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'jueves', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'viernes', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'sábado', openingTime: '7:30', closingTime: '21:00' },
+      { weekday: 'domingo', openingTime: '7:30', closingTime: '21:00' },
+    ],
+    places: [
       {
         address: 'Av. La Encalada 398',
         district: 'Santiago de Surco',
@@ -877,7 +1226,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Calle Alcanfores 323',
         district: 'Miraflores',
@@ -908,7 +1257,16 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    schedules: [
+      { weekday: 'lunes', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'martes', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'miércoles', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'jueves', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'viernes', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'sábado', openingTime: '9:00', closingTime: '19:00' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '19:00' },
+    ],
+    places: [
       {
         address: 'Jr. Leoncio Prado 490',
         district: 'Surquillo',
@@ -931,7 +1289,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Av. Gonzáles Prada 543',
         district: 'Surquillo',
@@ -962,7 +1320,8 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    menuLink: 'https://drive.google.com/file/d/1cj2e7scxTBbzh2m6l2W_jZ5wLoTVBWZY/view',
+    places: [
       {
         address: 'Av. Ricardo Palma 240',
         district: 'Surquillo',
@@ -972,6 +1331,10 @@ export const coffeeShops: CoffeeShop[] = [
       {
         social: 'instagram',
         link: 'https://www.instagram.com/oriundacafeteria',
+      },
+      {
+        social: 'facebook',
+        link: 'https://www.facebook.com/oriundacafeteria',
       },
     ],
     pages: [90, 91],
@@ -985,7 +1348,8 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: false,
     peruvianCoffee: true,
-    addresses: [
+    menuLink: 'https://uqrmecdn.s3.us-east-2.amazonaws.com/u/214162/592493-2939948f097f6818bc34f563e1146d5126f42ae.pdf',
+    places: [
       {
         address: 'Av. Agustín de la Rosa Toro 1128',
         district: 'San Borja',
@@ -1008,7 +1372,7 @@ export const coffeeShops: CoffeeShop[] = [
     petFriendly: true,
     veganOptions: true,
     peruvianCoffee: true,
-    addresses: [
+    places: [
       {
         address: 'Av. San Luis 2516',
         district: 'San Borja',

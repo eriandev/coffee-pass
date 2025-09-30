@@ -14,7 +14,9 @@ import { TiktokIcon } from '@/components/icons/socials/tiktok'
 import { FacebookIcon } from '@/components/icons/socials/facebook'
 import { AddVisitModal } from '@/components/modals/add-visit-modal'
 import { InstagramIcon } from '@/components/icons/socials/instagram'
+import { PlaceInfoModal } from '@/components/modals/place-info-modal'
 import type { AppStackParams } from '@/navigation/types'
+import type { CoffeeShopPlace } from '@/shared/types'
 
 const socialIcons = {
   instagram: <InstagramIcon />,
@@ -25,13 +27,31 @@ const socialIcons = {
 export type CoffeeShopScreenProps = StaticScreenProps<AppStackParams['coffeeShop']>
 export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
   const { params } = route
-  const { addresses, id, name, pages, parkingLot, peruvianCoffee, petFriendly, socials, veganOptions, wifiZone } =
-    params
+  const {
+    id,
+    name,
+    pages,
+    parkingLot,
+    peruvianCoffee,
+    petFriendly,
+    places,
+    socials,
+    veganOptions,
+    wifiZone,
+    schedules,
+  } = params
 
   const visitsList = storage.getVisits(id)
   const timesVisited = visitsList.length
-  const addressCount = addresses.length
-  const [showModal, setShowModal] = useState(false)
+  const placesCount = places.length
+  const [showAddVisitModal, setShowAddVisitModal] = useState(false)
+  const [showPlaceInfoModal, setShowPlaceInfoModal] = useState(false)
+  const [placeInfo, setPlaceInfo] = useState<CoffeeShopPlace>(places[0])
+
+  const handleShowPlaceInfo = (place: CoffeeShopPlace) => {
+    setPlaceInfo(place)
+    setShowPlaceInfoModal(true)
+  }
 
   return (
     <SafeArea style={styles.safearea}>
@@ -63,14 +83,21 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
               : null}
           </Text>
           <Text style={styles.tag}>
-            {addressCount} sede{addressCount > 1 ? 's' : null}
+            {placesCount} sede{placesCount > 1 ? 's' : null}
           </Text>
         </View>
 
         <View style={styles.addresses}>
-          {addresses.map(({ address, district }) => (
-            <AddressCard key={address} address={address} district={district} />
-          ))}
+          {places.map((place) => {
+            const fullAddress = `${place.address}, ${place.district}`.trim()
+            return (
+              <AddressCard
+                key={place.address}
+                fullAddress={fullAddress}
+                onPress={() => handleShowPlaceInfo({ ...place, fullAddress })}
+              />
+            )
+          })}
         </View>
 
         <View style={styles.pages}>
@@ -82,11 +109,17 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
         </View>
       </ScrollView>
 
-      <FloatingAction style={styles.floatingAction} action={() => setShowModal(true)}>
+      <FloatingAction style={styles.floatingAction} action={() => setShowAddVisitModal(true)}>
         <PlusIcon width={32} height={32} color={styles.floatingAction.color} />
       </FloatingAction>
 
-      <AddVisitModal coffeeShopId={id} visible={showModal} onClose={() => setShowModal(false)} />
+      <AddVisitModal coffeeShopId={id} visible={showAddVisitModal} onClose={() => setShowAddVisitModal(false)} />
+      <PlaceInfoModal
+        info={placeInfo}
+        schedules={schedules}
+        visible={showPlaceInfoModal}
+        onClose={() => setShowPlaceInfoModal(false)}
+      />
     </SafeArea>
   )
 }

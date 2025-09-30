@@ -10,10 +10,29 @@ export type CoffeeShop = {
   keys: string[]
   pages: number[]
   wifiZone: boolean
+  menuLink?: string
   parkingLot: boolean
   petFriendly: boolean
   veganOptions: boolean
   peruvianCoffee: boolean
-  addresses: Array<{ address: string; district: string; commingSoon?: boolean }>
-  socials: Array<{ social: 'instagram' | 'facebook' | 'tiktok'; link: string }>
+  places: CoffeeShopPlace[]
+  socials: CoffeeShopSocial[]
+  schedules?: Array<{
+    openingTime: `${string}:${string}`
+    closingTime: `${string}:${string}`
+    weekday: 'lunes' | 'martes' | 'miércoles' | 'jueves' | 'viernes' | 'sábado' | 'domingo'
+  }>
+}
+export type CoffeeShopPlace = {
+  address: string
+  district: string
+  fullAddress?: string
+  commingSoon?: boolean
+  temporarilyClosed?: boolean
+  placeMenuLink?: CoffeeShop['menuLink']
+  placeSchedules?: CoffeeShop['schedules']
+}
+export type CoffeeShopSocial = {
+  link: string
+  social: 'instagram' | 'facebook' | 'tiktok'
 }

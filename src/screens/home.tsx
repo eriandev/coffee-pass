@@ -34,20 +34,22 @@ export const HomeScreen = () => {
   }, [autocompleteController, clearSuggestions])
 
   return (
-    <SafeArea style={styles.safearea}>
-      <View style={styles.container}>
-        <AutoCompleteInput
-          direction="up"
-          dataSet={suggestionsList}
-          loading={suggestionsLoading}
-          controller={autocompleteController}
-          containerStyle={styles.containerStyle}
-          onChangeText={updateSuggestions}
-          onSelectItem={onSelectItem}
-          onClear={onClear}
-        />
-      </View>
-    </SafeArea>
+    <View style={{ backgroundColor: colors.bg.primary }}>
+      <SafeArea style={styles.safearea}>
+        <View style={styles.container}>
+          <AutoCompleteInput
+            direction="up"
+            dataSet={suggestionsList}
+            loading={suggestionsLoading}
+            controller={autocompleteController}
+            containerStyle={styles.containerStyle}
+            onChangeText={updateSuggestions}
+            onSelectItem={onSelectItem}
+            onClear={onClear}
+          />
+        </View>
+      </SafeArea>
+    </View>
   )
 }
 
