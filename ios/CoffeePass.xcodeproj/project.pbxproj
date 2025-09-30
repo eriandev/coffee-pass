@@ -21,6 +21,7 @@
 		BE3576D768F045AA85FBB472 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F7B92518A342348F0BC349 /* BootSplash.storyboard */; };
 		8E6BE563A71F4627B8D270C9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C310D93E380425EAE131F17 /* Colors.xcassets */; };
 		4D8F0D3910EB42C3B7891B48 /* nunito_400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3FB1E04EA224F9895A85460 /* nunito_400.ttf */; };
+		CEAB3AE0BB9B47C498F2A47B /* comming_soon.webp in Resources */ = {isa = PBXBuildFile; fileRef = 7CB483DEDD9342069428AB00 /* comming_soon.webp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		528A84FC91334FF2A52D6195 /* pt_serif_700.ttf */ = {isa = PBXFileReference; name = "pt_serif_700.ttf"; path = "../src/assets/fonts/pt_serif_700.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F6F7B92518A342348F0BC349 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "CoffeePass/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5C310D93E380425EAE131F17 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "CoffeePass/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
+		7CB483DEDD9342069428AB00 /* comming_soon.webp */ = {isa = PBXFileReference; name = "comming_soon.webp"; path = "../src/assets/images/comming_soon.webp"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				A0BB0F59F4CE40BBAE7AB6C7 /* nunito_700.ttf */,
 				528A84FC91334FF2A52D6195 /* pt_serif_700.ttf */,
 				C3FB1E04EA224F9895A85460 /* nunito_400.ttf */,
+				7CB483DEDD9342069428AB00 /* comming_soon.webp */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				BE3576D768F045AA85FBB472 /* BootSplash.storyboard in Resources */,
 				8E6BE563A71F4627B8D270C9 /* Colors.xcassets in Resources */,
 				4D8F0D3910EB42C3B7891B48 /* nunito_400.ttf in Resources */,
+				CEAB3AE0BB9B47C498F2A47B /* comming_soon.webp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

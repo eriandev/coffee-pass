@@ -15,8 +15,8 @@ export interface PlaceInfoModalProps {
   onClose: () => void
 }
 
-export const PlaceInfoModal = ({ info, menuLink, schedules, visible, onClose }: PlaceInfoModalProps) => {
-  const { commingSoon = false, fullAddress, placeMenuLink, placeSchedules } = info
+export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: PlaceInfoModalProps) => {
+  const { commingSoon = false, fullAddress, placeMenuLink, placeSchedules, temporarilyClosed } = info
   const hasSchedules = schedules && schedules?.length > 0
   const hasPlaceSchedules = placeSchedules && placeSchedules.length > 0
   const theSchedules = hasPlaceSchedules ? placeSchedules : (schedules ?? [])
@@ -37,7 +37,7 @@ export const PlaceInfoModal = ({ info, menuLink, schedules, visible, onClose }: 
       onRequestClose={onClose}
     >
       <View style={styles.container}>
-        {hasSchedules && !commingSoon && (
+        {hasSchedules && !commingSoon && !temporarilyClosed && (
           <>
             <Text style={styles.subtitle}>Horarios</Text>
             <View style={styles.schedules}>
@@ -54,6 +54,8 @@ export const PlaceInfoModal = ({ info, menuLink, schedules, visible, onClose }: 
             </View>
           </>
         )}
+
+        {temporarilyClosed && <Text style={styles.closed}>🚧 Cerrado temporalmente 🚧</Text>}
 
         <View style={styles.actions}>
           <View>
@@ -90,6 +92,13 @@ const getStyles = (needTitlePadding = false) =>
     },
     subtitle: {
       fontSize: 20,
+      ...fonts.bodyBold,
+      textAlign: 'center',
+      color: colors.text.primary,
+    },
+    closed: {
+      fontSize: 20,
+      paddingTop: 12,
       ...fonts.bodyBold,
       textAlign: 'center',
       color: colors.text.primary,

@@ -94,6 +94,7 @@ export function CoffeeShopScreen({ route }: CoffeeShopScreenProps) {
               <AddressCard
                 key={place.address}
                 fullAddress={fullAddress}
+                commingSoon={place.commingSoon}
                 onPress={() => handleShowPlaceInfo({ ...place, fullAddress })}
               />
             )
