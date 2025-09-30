@@ -108,7 +108,7 @@ const getStyles = (needTitlePadding = false) =>
       ...fonts.bodyBase,
     },
     schedules: {
-      width: '60%',
+      width: '70%',
       paddingTop: 4,
       marginHorizontal: 'auto',
     },
