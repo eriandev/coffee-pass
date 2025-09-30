@@ -14,7 +14,7 @@ export const storage = {
 
   setVisit: (coffeeShopId: string, date: string) => {
     const visits = storage.getVisits(coffeeShopId)
-    const visitsList = visits ? ([visits, date] as string[]) : [date]
+    const visitsList = visits ? ([...visits, date] as string[]) : [date]
     mmkv.set(`${coffeeShopId}.visits`, JSON.stringify(visitsList))
   },
 } as const
