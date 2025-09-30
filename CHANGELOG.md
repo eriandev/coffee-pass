@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/eriandev/coffee-pass/compare/v0.2.0...v0.3.0) (2025-09-30)
+
+
+### Features
+
+* add more info to each place of the coffee stores ([4445141](https://github.com/eriandev/coffee-pass/commit/4445141f379f0a00a873de9d6b616f50da3afd13))
+* new marks in the address card & info modal ([844d215](https://github.com/eriandev/coffee-pass/commit/844d215326244ebb1dfee2d063cd9e8181d3406f))
+
+
+### Bug Fixes
+
+* correct the color of the back button ([8060506](https://github.com/eriandev/coffee-pass/commit/806050669ea7210af538c3691065324d92b2cfda))
+* improve the modals design ([1a4b69a](https://github.com/eriandev/coffee-pass/commit/1a4b69a8013dc3e759b15a85e77bca8a540b4971))
+
 ## [0.2.0](https://github.com/eriandev/coffee-pass/compare/v0.1.1...v0.2.0) (2025-09-24)
 
 
