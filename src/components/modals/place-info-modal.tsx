@@ -16,16 +16,17 @@ export interface PlaceInfoModalProps {
 }
 
 export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: PlaceInfoModalProps) => {
-  const { commingSoon = false, fullAddress, placeMenuLink, placeSchedules, temporarilyClosed } = info
-  const hasSchedules = schedules && schedules?.length > 0
-  const hasPlaceSchedules = placeSchedules && placeSchedules.length > 0
+  const { commingSoon = false, fullAddress, placeMenuLink, placeSchedules = [] } = info
+  const hasSchedules = Boolean(schedules && schedules?.length > 0)
+  const hasPlaceSchedules = Boolean(placeSchedules && placeSchedules.length > 0)
   const theSchedules = hasPlaceSchedules ? placeSchedules : (schedules ?? [])
+  const showSchedules = hasSchedules && !commingSoon
 
   const hasPlaceMenuLink = placeMenuLink != null
   const theMenuLink = hasPlaceMenuLink ? placeMenuLink : menuLink
 
   const mapsPointLink = fullAddress ? 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+') : null
-  const styles = getStyles(hasSchedules && !commingSoon)
+  const styles = getStyles(showSchedules)
 
   return (
     <BaseModal
@@ -37,7 +38,7 @@ export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: 
       onRequestClose={onClose}
     >
       <View style={styles.container}>
-        {hasSchedules && !commingSoon && !temporarilyClosed && (
+        {showSchedules && (
           <>
             <Text style={styles.subtitle}>Horarios</Text>
             <View style={styles.schedules}>
@@ -54,8 +55,6 @@ export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: 
             </View>
           </>
         )}
-
-        {temporarilyClosed && <Text style={styles.closed}>🚧 Cerrado temporalmente 🚧</Text>}
 
         <View style={styles.actions}>
           <View>

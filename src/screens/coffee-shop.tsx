@@ -86,11 +86,12 @@ export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
         <View style={styles.addresses}>
           {places.map((place) => {
             const fullAddress = `${place.address}, ${place.district}`.trim()
+
             return (
               <AddressCard
+                {...place}
                 key={place.address}
                 fullAddress={fullAddress}
-                commingSoon={place.commingSoon}
                 onPress={() => handleShowPlaceInfo({ ...place, fullAddress })}
               />
             )

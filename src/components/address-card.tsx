@@ -2,26 +2,32 @@ import { useState } from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
 import { Button } from '@/components/button'
+import { useToast } from '@/hooks/use-toast'
 import { CopyIcon } from '@/components/icons/copy'
 import { CheckIcon } from '@/components/icons/check'
 import { useClipboard } from '@/hooks/use-clipboard'
 import { borders, colors, fonts } from '@/theme/values'
 import commingSoonImage from '@/assets/images/comming_soon.webp'
-import type { FC } from '@/shared/types'
+import type { CoffeeShopPlace, FC } from '@/shared/types'
 
-export interface AddressProps {
+export interface AddressProps extends CoffeeShopPlace {
   fullAddress: string
-  commingSoon?: boolean
   onPress?: () => void
 }
 
-export const AddressCard: FC<AddressProps> = ({ commingSoon = false, fullAddress, onPress }) => {
+export const AddressCard: FC<AddressProps> = ({
+  fullAddress,
+  temporarilyClosed,
+  commingSoon = false,
+  onPress = () => {},
+}) => {
+  const { showToast } = useToast()
   const { copyToClipboard } = useClipboard()
   const [isCoping, setIsCoping] = useState(false)
   const [cardHeight, setCardHeight] = useState(0)
   const styles = getStyles(cardHeight)
 
-  const handlePress = () => {
+  const handleActionPress = () => {
     copyToClipboard(fullAddress)
 
     if (isCoping) return
@@ -30,18 +36,27 @@ export const AddressCard: FC<AddressProps> = ({ commingSoon = false, fullAddress
     setTimeout(() => setIsCoping(false), 3000)
   }
 
+  const handleCardPress = () => {
+    if (temporarilyClosed) {
+      showToast('Cerrado temporalmente')
+      return
+    }
+
+    onPress()
+  }
+
   return (
     <Pressable
       style={styles.addressCard}
-      onPress={onPress}
       onLayout={({ nativeEvent }) => setCardHeight(nativeEvent.layout.height)}
+      onPress={handleCardPress}
     >
       {commingSoon && <Image source={commingSoonImage} style={styles.commingSoon} />}
       <View style={styles.addressInfo}>
         <Text style={styles.address}>{fullAddress}</Text>
       </View>
       <View style={styles.addressActions}>
-        <Button square variant="secondary" onPress={handlePress}>
+        <Button square variant="secondary" onPress={handleActionPress}>
           {isCoping ? <CheckIcon color={styles.icon.color} /> : <CopyIcon color={styles.icon.color} />}
         </Button>
       </View>
