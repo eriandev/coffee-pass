@@ -1,0 +1,19 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 29168a413820cebfafa4fcf1d5897bdf9adbb079..4b6d22990505fb43d059dbf795d58f10be595684 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -1,14 +1,3 @@
+-buildscript {
+-    repositories {
+-        google()
+-	mavenCentral()
+-    }
+-
+-    dependencies {
+-        classpath 'com.android.tools.build:gradle:3.2.1'
+-    }
+-}
+-
+ def getExtOrDefault(name) {
+     return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['ReactNativeClipBoard_' + name]
+ }

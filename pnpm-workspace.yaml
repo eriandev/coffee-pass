@@ -1,3 +1,5 @@
 engineStrict: true
 minimumReleaseAge: 2880
 resolutionMode: time-based
+patchedDependencies:
+  '@react-native-clipboard/clipboard': patches/@react-native-clipboard__clipboard.patch

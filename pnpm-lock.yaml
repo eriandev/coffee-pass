@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@react-native-clipboard/clipboard':
+    hash: 638674350ff99995772ee5601d16c52d1aed649bd52fb3eff579322e2da07a73
+    path: patches/@react-native-clipboard__clipboard.patch
+
 importers:
 
   .:
