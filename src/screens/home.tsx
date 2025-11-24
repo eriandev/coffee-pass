@@ -1,32 +1,26 @@
 import { useCallback, useRef } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import {
-  AutoCompleteInput,
-  AutoCompleteInputController,
-  type AutoCompleteInputItem,
-} from '@/components/auto-complete-input'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { AutoCompleteInput, AutoCompleteInputController } from '@/components/auto-complete-input'
 
 import { version } from '@/shared/consts'
-import { coffeeShops } from '@/shared/data'
 import { colors, fonts } from '@/theme/values'
 import { useNavigate } from '@/navigation/navigate'
 import { SafeArea } from '@/shared/components/safe-area'
 import { useSuggestions } from '@/hooks/use-suggestions'
+import { SuggestionCard } from '@/components/suggestion-card'
+import type { CoffeeShop } from '@/shared/types'
 
 export const HomeScreen = () => {
   const navigation = useNavigate()
   const autocompleteController = useRef<AutoCompleteInputController>(null)
-  const { suggestionsList, suggestionsLoading, clearSuggestions, updateSuggestions } = useSuggestions(coffeeShops)
+  const { suggestionsList, suggestionsLoading, clearSuggestions, updateSuggestions } = useSuggestions()
 
   const onSelectItem = useCallback(
-    (item: AutoCompleteInputItem | null) => {
-      const coffeeShop = coffeeShops.find(({ name }) => item?.id === name.toLocaleUpperCase().replaceAll(' ', ''))
-      if (item == null || coffeeShop == null) return
-
-      clearSuggestions()
-      navigation.navigate('coffeeShop', coffeeShop)
+    (item: CoffeeShop | null) => {
+      if (item == null) return
+      navigation.navigate('coffeeShop', item)
     },
-    [navigation, clearSuggestions],
+    [navigation],
   )
 
   const onClear = useCallback(() => {
@@ -35,17 +29,37 @@ export const HomeScreen = () => {
   }, [autocompleteController, clearSuggestions])
 
   return (
-    <View style={{ backgroundColor: colors.bg.primary }}>
+    <View style={styles.screen}>
       <SafeArea style={styles.safearea}>
         <View style={styles.container}>
+          <FlatList
+            scrollEnabled
+            data={suggestionsList}
+            showsVerticalScrollIndicator
+            keyExtractor={({ id }) => id}
+            contentContainerStyle={styles.contentContainerStyle}
+            renderItem={({ item }) => {
+              const uniqueDistricts = [...new Set(item.places.map((p) => p.district))]
+              const districtsJoined = uniqueDistricts.join(' — ')
+
+              return (
+                <SuggestionCard key={item.id} title={item.name} onPress={() => onSelectItem(item)}>
+                  <View style={styles.addresses}>
+                    <Text>{districtsJoined}</Text>
+                  </View>
+                </SuggestionCard>
+              )
+            }}
+          />
+
           <AutoCompleteInput
+            dataSet={[]}
             direction="up"
-            dataSet={suggestionsList}
+            showItems={false}
             loading={suggestionsLoading}
             controller={autocompleteController}
             containerStyle={styles.containerStyle}
             onChangeText={updateSuggestions}
-            onSelectItem={onSelectItem}
             onClear={onClear}
           />
           <Text style={styles.version}>v{version}</Text>
@@ -56,14 +70,24 @@ export const HomeScreen = () => {
 }
 
 const styles = StyleSheet.create({
-  safearea: {
-    paddingBottom: 32,
+  screen: {
     backgroundColor: colors.bg.primary,
+  },
+  safearea: {
+    paddingVertical: 32,
   },
   container: {
     height: '100%',
     position: 'relative',
     marginHorizontal: 16,
+  },
+  contentContainerStyle: {
+    rowGap: 16,
+    paddingBottom: 72,
+  },
+  addresses: {
+    rowGap: 4,
+    paddingRight: 16,
   },
   containerStyle: {
     left: 0,

@@ -7,8 +7,8 @@ import type {
 } from 'react-native-autocomplete-dropdown'
 import type { RefObject } from 'react'
 
-import { borders, colors, fonts } from '@/theme/values'
 import { SearchIcon } from '@/components/icons/search'
+import { borders, colors, fonts } from '@/theme/values'
 import type { FC } from '@/shared/types'
 
 export type AutoCompleteInputItem = AutocompleteDropdownItem
@@ -16,10 +16,12 @@ export type AutoCompleteInputController = IAutocompleteDropdownRef
 export type AutoCompleteInputProps = Omit<IAutocompleteDropdownProps, 'controller'> & {
   controller?: RefObject<AutoCompleteInputController | null>
   emptyResultText?: string
+  showItems?: boolean
 }
 
 export const AutoCompleteInput: FC<AutoCompleteInputProps> = ({
   debounce = 600,
+  showItems = true,
   inputHeight = 50,
   showClear = false,
   useFilter = false,
@@ -55,9 +57,11 @@ export const AutoCompleteInput: FC<AutoCompleteInputProps> = ({
       rightButtonsContainerStyle={styles.rightButtonsContainer}
       RightIconComponent={<SearchIcon color={colors.text.primary} />}
       suggestionsListContainerStyle={styles.suggestionsListContainer}
-      ItemSeparatorComponent={() => <View style={styles.separator} />}
-      renderItem={({ title }) => <Text style={styles.item}>{title}</Text>}
-      EmptyResultComponent={<Text style={styles.item}>{emptyResultText}</Text>}
+      ItemSeparatorComponent={() => (showItems ? <View style={styles.separator} /> : null)}
+      renderItem={({ title }) => (showItems ? <Text style={styles.item}>{title}</Text> : null)}
+      EmptyResultComponent={
+        showItems ? <Text style={styles.item}>{emptyResultText}</Text> : <Text style={styles.noDisplay} />
+      }
       {...restProps}
     />
   )
@@ -103,5 +107,8 @@ const styles = StyleSheet.create({
   },
   suggestionsListContainer: {
     backgroundColor: colors.bg.input,
+  },
+  noDisplay: {
+    display: 'none',
   },
 })
