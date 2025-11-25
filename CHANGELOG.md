@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/eriandev/coffee-pass/compare/v0.3.1...v0.4.0) (2025-11-25)
+
+
+### Features
+
+* displays a toast on temporarily closed places instead of the modal ([f701a71](https://github.com/eriandev/coffee-pass/commit/f701a71a16d8b39117968da1158e80a7d10780db))
+* new hook `use-toast` ([408e64a](https://github.com/eriandev/coffee-pass/commit/408e64a6a49532372009ff52432be096ed66f79a))
+* show suggestion cards when search a coffe shop ([715c81b](https://github.com/eriandev/coffee-pass/commit/715c81b88081743c2ecab4c5cf464f51336c78b7))
+
+
+### Bug Fixes
+
+* some corrections due to the update of some dependencies ([4d07fb8](https://github.com/eriandev/coffee-pass/commit/4d07fb8b8574942d2304f549dbf66b042ae153db))
+
 ### [0.3.1](https://github.com/eriandev/coffee-pass/compare/v0.3.0...v0.3.1) (2025-09-30)
 
 
