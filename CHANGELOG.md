@@ -1,7 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ## [0.4.0](https://github.com/eriandev/coffee-pass/compare/v0.3.1...v0.4.0) (2025-11-25)
 
 
