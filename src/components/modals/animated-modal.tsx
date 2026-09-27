@@ -1,11 +1,11 @@
-/* eslint-disable */
-import React, { useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Modal, View, Text, StyleSheet, TouchableWithoutFeedback, Animated, Easing, Platform } from 'react-native'
 
 type Props = {
   visible: boolean
   onClose: () => void
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export function AnimatedModal({ visible, onClose, children }: Props) {
@@ -84,7 +84,7 @@ export function AnimatedModal({ visible, onClose, children }: Props) {
 
 const styles = StyleSheet.create({
   overlay: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   centered: {

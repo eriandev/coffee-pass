@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import { AutoCompleteInput, AutoCompleteInputController } from '@/components/auto-complete-input'
+import { AutoCompleteInput, type AutoCompleteInputController } from '@/components/auto-complete-input'
 
 import { version } from '@/shared/consts'
 import { colors, fonts } from '@/theme/values'
@@ -26,7 +26,7 @@ export const HomeScreen = () => {
   const onClear = useCallback(() => {
     autocompleteController.current?.clear()
     clearSuggestions()
-  }, [autocompleteController, clearSuggestions])
+  }, [clearSuggestions])
 
   return (
     <View style={styles.screen}>

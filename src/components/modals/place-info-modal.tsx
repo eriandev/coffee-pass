@@ -25,7 +25,7 @@ export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: 
   const hasPlaceMenuLink = placeMenuLink != null
   const theMenuLink = hasPlaceMenuLink ? placeMenuLink : menuLink
 
-  const mapsPointLink = fullAddress ? 'https://www.google.com/maps/place/' + fullAddress.replaceAll(' ', '+') : null
+  const mapsPointLink = fullAddress ? `https://www.google.com/maps/place/${fullAddress.replaceAll(' ', '+')}` : null
   const styles = getStyles(showSchedules)
 
   return (
@@ -42,16 +42,19 @@ export const PlaceInfoModal = ({ info, visible, menuLink, schedules, onClose }: 
           <>
             <Text style={styles.subtitle}>Horarios</Text>
             <View style={styles.schedules}>
-              {theSchedules.map(({ weekday, openingTime, closingTime }, index) => (
-                <View key={weekday + index} style={styles.schedule}>
-                  <Text style={styles.bodyText}>{weekday}</Text>
-                  <View style={styles.scheduleTime}>
-                    <Text style={styles.bodyText}>{openingTime}</Text>
-                    <Text style={styles.bodyText}> — </Text>
-                    <Text style={styles.bodyText}>{closingTime}</Text>
+              {theSchedules.map(({ weekday, openingTime, closingTime }, index) => {
+                const key = `${weekday} + ${index}`
+                return (
+                  <View key={key} style={styles.schedule}>
+                    <Text style={styles.bodyText}>{weekday}</Text>
+                    <View style={styles.scheduleTime}>
+                      <Text style={styles.bodyText}>{openingTime}</Text>
+                      <Text style={styles.bodyText}> — </Text>
+                      <Text style={styles.bodyText}>{closingTime}</Text>
+                    </View>
                   </View>
-                </View>
-              ))}
+                )
+              })}
             </View>
           </>
         )}
