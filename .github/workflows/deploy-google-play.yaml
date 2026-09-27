@@ -13,19 +13,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Use pnpm 🗜️
-        uses: pnpm/action-setup@v2
+      - name: Setup pnpm 🗜️
+        uses: pnpm/setup@v3
         with:
-          version: 10.23.0
-          run_install: false
+          version: 12
+          runtime: node@24.21.0
+          cache: true
 
-      - name: Use Node 🐢
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22.21.1
-          cache: 'pnpm'
-
-      - name: Install dependencies ⚙️
+      - name: Install dependencies 💼
         run: pnpm install --frozen-lockfile
 
       - name: Make gradlew executable
