@@ -1,4 +1,4 @@
-package dev.erian.coffeepass
+package dev.erian.esl
 
 import android.app.Application
 import com.facebook.react.PackageList
@@ -13,9 +13,9 @@ import com.facebook.react.defaults.DefaultReactNativeHost
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost =
-      object : DefaultReactNativeHost(this) {
+      object : DefaultReactNativeHost(this@MainApplication) {
         override fun getPackages(): List<ReactPackage> =
-            PackageList(this).packages.apply {
+            PackageList(this@MainApplication).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
               // add(MyReactNativePackage())
             }
