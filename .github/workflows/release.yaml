@@ -1,0 +1,155 @@
+name: Release
+
+# Triggered by pushing the tag that `release-it` created locally:
+#
+#   pnpm release && git push origin main --follow-tags
+#
+# The version, the CHANGELOG and the tag are all produced by `release-it` on
+# your machine (see .release-it.json), so this workflow never decides what the
+# next version is. It only reacts to the tag.
+#
+# This workflow does not build or sign anything: that is the job of
+# `deploy-google-play.yaml`, which reacts to the same tag and uploads the AAB to
+# the internal track. What happens here is publishing the GitHub release with the
+# notes `release-it` already wrote into CHANGELOG.md.
+#
+# The lint and typecheck steps run first on purpose. A failing check means no
+# release is published at all, instead of a release that advertises a broken
+# commit. The AAB is still uploaded to Play in that case, so the Play track and
+# the GitHub release are independent by design.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish GitHub release
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Setup pnpm 🗜️
+        uses: pnpm/setup@479c3cd2084b8e20207344a47dc10bdabea95adb # v3
+        with:
+          version: 12
+          runtime: node@24.21.0
+          cache: true
+
+      - name: Install dependencies 💼
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint & format check ✨
+        run: pnpm check
+
+      # The release title is the tag exactly as pushed (`v1.2.3`), so the release
+      # heading and the tag always read identically. The body is exactly the
+      # section that `release-it` just added to CHANGELOG.md for that version. The
+      # heading line itself is dropped, because the title already says which
+      # version this is and the compare link is noise once you are already on the
+      # release page.
+      #
+      # The CHANGELOG stores bare versions (`## [1.2.3]`), so the `v` is stripped
+      # for the lookup only.
+      #
+      # It fails loudly when the version is missing from the CHANGELOG instead of
+      # publishing an empty release, which is the failure mode worth being strict
+      # about: an empty body is much harder to notice than a red build.
+      #
+      # The copy is done with awk because the job is to move a section verbatim, so
+      # the file is read and written as raw bytes and never re-encoded to whatever
+      # codepage the runner uses. That is what keeps the emoji `release-it` writes
+      # into the CHANGELOG (`🐛 fix`, `🚜 build`, `📚 docs`, `⚙️ ci`, `✨ features`,
+      # ...) intact.
+      - name: Read version notes from CHANGELOG 📝
+        id: notes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          VERSION="${GITHUB_REF_NAME#v}"
+
+          # Only POSIX awk is used (`substr` and not `gensub`, and no /dev/stderr),
+          # so the script behaves the same on gawk, mawk and busybox. Headings are
+          # matched by comparing exact substrings instead of a pattern, because the
+          # dots in a semver would otherwise be wildcards and `0.3.1` would match a
+          # `0.3.10` heading.
+          if ! BODY="$(
+            awk -v version="$VERSION" '
+              function is_heading(line,   rest, n, c) {
+                if (substr(line, 1, 3) != "## ") return 0
+                rest = substr(line, 4)
+                sub(/^[ \t]+/, "", rest)
+                if (substr(rest, 1, 1) == "[") rest = substr(rest, 2)
+                n = length(version)
+                if (substr(rest, 1, n) != version) return 0
+                rest = substr(rest, n + 1)
+                c = substr(rest, 1, 1)
+                return rest == "" || c == "]" || c == "(" || c == " " || c == "\t"
+              }
+              {
+                line = $0
+                sub(/\r$/, "", line)
+                if (found) {
+                  if (substr(line, 1, 3) == "## ") exit
+                  print line
+                } else if (is_heading(line)) {
+                  found = 1
+                }
+              }
+              END { if (!found) exit 3 }
+            ' CHANGELOG.md
+          )"; then
+            echo "CHANGELOG.md has no section for version '$VERSION'" >&2
+            exit 1
+          fi
+
+          # Trim the blank lines that surround the section, so the body does not
+          # start or end with empty lines.
+          BODY="${BODY#"${BODY%%[![:space:]]*}"}"
+          BODY="${BODY%"${BODY##*[![:space:]]}"}"
+
+          if [ -z "$BODY" ]; then
+            echo "the '$VERSION' section of CHANGELOG.md is empty" >&2
+            exit 1
+          fi
+
+          # A semver prerelease such as x.x.x-rc.1 becomes a GitHub prerelease.
+          if [ "${VERSION#*-}" != "$VERSION" ]; then
+            PRERELEASE="true"
+          else
+            PRERELEASE="false"
+          fi
+
+          {
+            printf 'prerelease=%s\n' "$PRERELEASE"
+            printf 'release_body<<CHANGELOG_EOF\n'
+            printf '%s\n' "$BODY"
+            printf 'CHANGELOG_EOF\n'
+          } >> "$GITHUB_OUTPUT"
+
+      # `gh` ships with the runner, so this needs no third party action and no
+      # extra SHA to pin. The notes are handed over through `env:` instead of
+      # being interpolated straight into the script, which keeps the multi line
+      # markdown from being re-parsed by the shell.
+      - name: Create GitHub release 🚀
+        env:
+          TAG: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: ${{ steps.notes.outputs.release_body }}
+          PRERELEASE: ${{ steps.notes.outputs.prerelease }}
+        run: |
+          set -euo pipefail
+
+          if [ "$PRERELEASE" = "true" ]; then
+            gh release create "$TAG" --title "$TAG" --notes "$BODY" --prerelease
+          else
+            gh release create "$TAG" --title "$TAG" --notes "$BODY"
+          fi

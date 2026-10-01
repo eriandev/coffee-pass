@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "release": "release-it",
+    "check": "pnpx @biomejs/biome check",
     "ios": "react-native run-ios --port 8082",
     "lint": "pnpx @biomejs/biome lint --write",
     "start": "react-native start --reset-cache",
-    "check": "pnpx @biomejs/biome check --write",
     "format": "pnpx @biomejs/biome format --write",
     "android": "react-native run-android --port 8082",
     "purge": "rm -rf node_modules/ pnpm-lock.yaml ios/Podfile.lock && pnpm clean",
