@@ -100,6 +100,9 @@ importers:
       globals:
         specifier: 16.5.0
         version: 16.5.0
+      hermes-compiler:
+        specifier: 250829098.0.17
+        version: 250829098.0.17
       release-it:
         specifier: 21.1.0
         version: 21.1.0(@types/node@25.9.8)(supports-color@8.1.1)
