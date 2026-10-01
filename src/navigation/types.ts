@@ -4,13 +4,13 @@ import type {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack'
-import type { CoffeeShop, Component } from '@/shared/types'
+import type { Component } from '@/shared/types'
 
 export type AppStackNavigationProp = NativeStackNavigationProp<AppStackParams>
 export type AppStackParams = {
   home: undefined
   notFound: undefined
-  coffeeShop: CoffeeShop
+  coffeeShop: { id: string }
 }
 
 type ScreenConfig<K extends keyof AppStackParams> = {

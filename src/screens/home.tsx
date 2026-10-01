@@ -18,7 +18,7 @@ export const HomeScreen = () => {
   const onSelectItem = useCallback(
     (item: CoffeeShop | null) => {
       if (item == null) return
-      navigation.navigate('coffeeShop', item)
+      navigation.navigate('coffeeShop', { id: item.id })
     },
     [navigation],
   )
@@ -43,7 +43,7 @@ export const HomeScreen = () => {
               const districtsJoined = uniqueDistricts.join(' — ')
 
               return (
-                <SuggestionCard key={item.id} title={item.name} onPress={() => onSelectItem(item)}>
+                <SuggestionCard title={item.name} onPress={() => onSelectItem(item)}>
                   <View style={styles.addresses}>
                     <Text>{districtsJoined}</Text>
                   </View>
