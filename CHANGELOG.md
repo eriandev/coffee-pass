@@ -1,5 +1,47 @@
 # Changelog
 
+## [0.4.1](https://github.com/eriandev/coffee-pass/compare/v0.4.0...v0.4.1) (2026-10-01)
+
+### 🐛 Bug Fixes
+
+* **android:** declare hermes-compiler so pnpm exposes hermesc to gradle ([b8be495](https://github.com/eriandev/coffee-pass/commit/b8be495883c1117d5c7b227b2ae9bbe68f6586dd))
+* **android:** fail fast when the release signing env vars are missing ([c612fdd](https://github.com/eriandev/coffee-pass/commit/c612fdda9f94e35024c01e3cc47f68a35efe9e25))
+* **android:** patch `react-native-date-picker` for modern AGP ([40305c1](https://github.com/eriandev/coffee-pass/commit/40305c1b1472cbb848b9315cc41b5b7b36bf0374))
+* **clipboard:** memoize the copy callback and drop the unused read ([46518df](https://github.com/eriandev/coffee-pass/commit/46518df76807b539305342c4fca83ce78c003090))
+* **coffee-shop:** look up the shop by id and fall back to NotFound ([1d7684e](https://github.com/eriandev/coffee-pass/commit/1d7684eb5457d7ab8f7d8638a3cd26b40bd6bb0a))
+* correct the MainApplication package declaration ([ee04248](https://github.com/eriandev/coffee-pass/commit/ee04248ad09ed366d5bd933af73e934fc87174e2))
+* **link:** encode the address and report links that fail to open ([e5326f5](https://github.com/eriandev/coffee-pass/commit/e5326f5f567ae10b0dc60db5185c945053bcfa17))
+* lock the app to the light theme to avoid unreadable status bar ([4be3630](https://github.com/eriandev/coffee-pass/commit/4be3630429c380b60e0d4f8be2fbe01163fc697e))
+* **modals:** close the modal when the overlay is pressed ([106a41c](https://github.com/eriandev/coffee-pass/commit/106a41c77ada0c79b2b17319199a79473723aa53))
+* **nav:** build the static navigator outside of the render cycle ([d5b1ccc](https://github.com/eriandev/coffee-pass/commit/d5b1ccc4d7acac9cbf9f59c8223c76da1a8678c7))
+* **nav:** navigate with the coffee shop id instead of the whole object ([a9df615](https://github.com/eriandev/coffee-pass/commit/a9df615a020bd9429d0b3570ae57765a38516317))
+* **storage:** tolerate corrupted visit payloads ([4b6c265](https://github.com/eriandev/coffee-pass/commit/4b6c265965069ddf2c8344078bdb0389bdfd4c55))
+* **suggestions:** validate the trimmed token and clear the loading state ([d628982](https://github.com/eriandev/coffee-pass/commit/d6289828dd85a1ef2039f4a87ae9f706bee34d54))
+* **visits:** reset the selected date and pad day and month correctly ([77f01a2](https://github.com/eriandev/coffee-pass/commit/77f01a21afd13e8c4b5df60de59a82984f63166d))
+
+### 🚜 Code Refactoring
+
+* **address-card:** remove the dead layout measurement ([e8c17e2](https://github.com/eriandev/coffee-pass/commit/e8c17e2dd83ef6cafeee9abfd45fef59b9d23fc4))
+* changes required due to the upgrade of the dependencies ([8098f09](https://github.com/eriandev/coffee-pass/commit/8098f097c6e0b53abbef0b4dbda7fe881893ed35))
+* replace eslint & prettier with biome ([2ec5ddd](https://github.com/eriandev/coffee-pass/commit/2ec5ddd63bd786410e161e362c3a14e2de136866))
+* replaces the release & changelog updater ([35f3728](https://github.com/eriandev/coffee-pass/commit/35f3728af3359bd2db8788ad179413fea7b842c2))
+* **ui:** cache the variant stylesheets and drop the dead ones ([93218bd](https://github.com/eriandev/coffee-pass/commit/93218bd25f4b647a45591f2592255c3e2f7e4be9))
+
+### ⚙️ Continuous Integration
+
+* bump setup-java to v5 for node 24 runners ([88599ce](https://github.com/eriandev/coffee-pass/commit/88599ce2e28e415ee1fe45e5fa9fe8114b8484d3))
+* pin actions to commit SHAs and harden the release workflow ([bcaf250](https://github.com/eriandev/coffee-pass/commit/bcaf250304e2e7c0fd468574e6e528a55c3bf828))
+* publish the GitHub release with the changelog notes on tag push ([4401ded](https://github.com/eriandev/coffee-pass/commit/4401ded983d7974aeb8eb536da2c21f859e9b772))
+* restrict workflow permissions and validate signing secrets ([5a51008](https://github.com/eriandev/coffee-pass/commit/5a510081cdc13f1ed0f8cc74e8f407be0367c4c3))
+* serialize `deploy-google-play` deployments with a concurrency group ([5b942a2](https://github.com/eriandev/coffee-pass/commit/5b942a2cf839690f5452edd82afaff430054c533))
+* update action dependencies ([ccd876a](https://github.com/eriandev/coffee-pass/commit/ccd876acfa91b9234d2468a041543d42917ba3c6))
+
+### Miscellaneous Tasks
+
+* **data:** fill in the Comadre Café schedule and drop the unused district key ([af2c85c](https://github.com/eriandev/coffee-pass/commit/af2c85c7889dad96edd8f6ed819111ab55760096))
+* **deps:** update dependencies ([528e212](https://github.com/eriandev/coffee-pass/commit/528e2123824c8c55fe41473373cd65eac0863412))
+* drop the unused jest config ([6cd81d1](https://github.com/eriandev/coffee-pass/commit/6cd81d180196d25fc336451ff8dfd1a49256fc5d))
+
 ## [0.4.0](https://github.com/eriandev/coffee-pass/compare/v0.3.1...v0.4.0) (2025-11-25)
 
 
