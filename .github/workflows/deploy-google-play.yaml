@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-24.04
@@ -12,6 +15,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Setup pnpm 🗜️
         uses: pnpm/setup@479c3cd2084b8e20207344a47dc10bdabea95adb # v3
@@ -32,18 +37,34 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Decode Keystore
+      - name: Decode Keystore 🔑
         run: |
+          if [ -z "$RELEASE_KEYSTORE_BASE64" ]; then
+            echo "::error::RELEASE_KEYSTORE_BASE64 secret is not set"
+            exit 1
+          fi
           echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > android/app/my-release-key.keystore
+          if [ ! -s android/app/my-release-key.keystore ]; then
+            echo "::error::Decoded keystore is empty"
+            exit 1
+          fi
         env:
           RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
 
       - name: Set Gradle signing env
         run: |
+          for var in RELEASE_KEY_ALIAS RELEASE_KEY_PASSWORD RELEASE_KEYSTORE_PASSWORD; do
+            if [ -z "${!var}" ]; then
+              echo "::error::$var secret is not set"
+              exit 1
+            fi
+            echo "$var=${!var}" >> $GITHUB_ENV
+          done
           echo "RELEASE_KEYSTORE=$GITHUB_WORKSPACE/android/app/my-release-key.keystore" >> $GITHUB_ENV
-          echo "RELEASE_KEYSTORE_PASSWORD=${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
-          echo "RELEASE_KEY_ALIAS=${{ secrets.RELEASE_KEY_ALIAS }}" >> $GITHUB_ENV
-          echo "RELEASE_KEY_PASSWORD=${{ secrets.RELEASE_KEY_PASSWORD }}" >> $GITHUB_ENV
+        env:
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
 
       - name: Build Release AAB
         run: |
