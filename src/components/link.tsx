@@ -4,12 +4,17 @@ import type { FC } from '@/shared/types'
 
 export interface LinkProps extends Omit<PressableProps, 'onPress'> {
   to: string
+  onError?: (targetURL: string) => void
 }
 
-export const Link: FC<LinkProps> = ({ to: targetURL, children, ...restProps }) => {
+export const Link: FC<LinkProps> = ({ to: targetURL, children, onError, ...restProps }) => {
   const handlePress = useCallback(async () => {
-    await Linking.openURL(targetURL)
-  }, [targetURL])
+    try {
+      await Linking.openURL(targetURL)
+    } catch {
+      onError?.(targetURL)
+    }
+  }, [targetURL, onError])
 
   return (
     <Pressable {...restProps} onPress={handlePress}>
