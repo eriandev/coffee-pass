@@ -93,15 +93,32 @@ android {
             keyPassword 'android'
         }
         release {
-            def keystorePath = System.getenv("RELEASE_KEYSTORE") ?: "xxx"
-            def keystorePass = System.getenv("RELEASE_KEYSTORE_PASSWORD") ?: "xxx"
-            def keyAliasVal  = System.getenv("RELEASE_KEY_ALIAS") ?: "xxx"
-            def keyPassVal   = System.getenv("RELEASE_KEY_PASSWORD") ?: "xxx"
+            def requiredEnvVars = [
+                "RELEASE_KEYSTORE",
+                "RELEASE_KEY_ALIAS",
+                "RELEASE_KEY_PASSWORD",
+                "RELEASE_KEYSTORE_PASSWORD",
+            ]
+            def missing = requiredEnvVars.findAll {
+                System.getenv(it) == null || System.getenv(it).trim().isEmpty()
+            }
 
-            storeFile file(keystorePath)
-            storePassword keystorePass
-            keyAlias keyAliasVal
-            keyPassword keyPassVal
+            // signingConfigs is evaluated at configuration time, so this must only
+            // run for release tasks or it would break local debug builds.
+            def isReleaseBuild = gradle.startParameter.taskNames.any {
+                it.toLowerCase(Locale.ROOT).contains("release")
+            }
+
+            if (isReleaseBuild && !missing.isEmpty()) {
+                throw new GradleException(
+                    "Cannot sign the release build, missing environment variable(s): " + missing.join(", ")
+                )
+            }
+
+            storeFile file(System.getenv("RELEASE_KEYSTORE") ?: "missing-release-keystore")
+            storePassword System.getenv("RELEASE_KEYSTORE_PASSWORD") ?: "missing"
+            keyAlias System.getenv("RELEASE_KEY_ALIAS") ?: "missing"
+            keyPassword System.getenv("RELEASE_KEY_PASSWORD") ?: "missing"
         }
     }
     buildTypes {
