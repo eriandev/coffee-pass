@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*.*.*'
 
+concurrency:
+  group: deploy-google-play
+  cancel-in-progress: false
+  queue: max
+
 permissions:
   contents: read
 
