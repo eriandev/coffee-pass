@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
 import { Button } from '@/components/button'
@@ -9,6 +9,8 @@ import { useClipboard } from '@/hooks/use-clipboard'
 import { borders, colors, fonts } from '@/theme/values'
 import commingSoonImage from '@/assets/images/comming_soon.webp'
 import type { CoffeeShopPlace, FC } from '@/shared/types'
+
+const FEEDBACK_TIMEOUT = 3000
 
 export interface AddressProps extends CoffeeShopPlace {
   fullAddress: string
@@ -24,17 +26,26 @@ export const AddressCard: FC<AddressProps> = ({
   const { showToast } = useToast()
   const { copyToClipboard } = useClipboard()
   const [isCoping, setIsCoping] = useState(false)
-  const [cardHeight, setCardHeight] = useState(0)
-  const styles = getStyles(cardHeight)
+  const feedbackTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const handleActionPress = () => {
+  useEffect(
+    () => () => {
+      if (feedbackTimeout.current) clearTimeout(feedbackTimeout.current)
+    },
+    [],
+  )
+
+  const handleActionPress = useCallback(() => {
     copyToClipboard(fullAddress)
 
-    if (isCoping) return
+    if (feedbackTimeout.current) return
 
     setIsCoping(true)
-    setTimeout(() => setIsCoping(false), 3000)
-  }
+    feedbackTimeout.current = setTimeout(() => {
+      setIsCoping(false)
+      feedbackTimeout.current = null
+    }, FEEDBACK_TIMEOUT)
+  }, [copyToClipboard, fullAddress])
 
   const handleCardPress = () => {
     if (temporarilyClosed) {
@@ -46,11 +57,7 @@ export const AddressCard: FC<AddressProps> = ({
   }
 
   return (
-    <Pressable
-      style={styles.addressCard}
-      onLayout={({ nativeEvent }) => setCardHeight(nativeEvent.layout.height)}
-      onPress={handleCardPress}
-    >
+    <Pressable style={styles.addressCard} onPress={handleCardPress}>
       {commingSoon && <Image source={commingSoonImage} style={styles.commingSoon} />}
       <View style={styles.addressInfo}>
         <Text style={styles.address}>{fullAddress}</Text>
@@ -64,45 +71,44 @@ export const AddressCard: FC<AddressProps> = ({
   )
 }
 
-const getStyles = (cardHeight: number) =>
-  StyleSheet.create({
-    addressCard: {
-      padding: 20,
-      minHeight: 32,
-      display: 'flex',
-      borderRadius: 20,
-      position: 'relative',
-      flexDirection: 'row',
-      borderWidth: borders.width.lg,
-      borderColor: colors.border.card,
-      backgroundColor: colors.bg.secondary,
-    },
-    commingSoon: {
-      top: 0,
-      left: 0,
-      width: '100%',
-      opacity: 0.25,
-      position: 'absolute',
-      height: cardHeight - borders.width.lg * 2,
-    },
-    addressInfo: {
-      width: '85%',
-      paddingRight: 12,
-      justifyContent: 'center',
-    },
-    addressActions: {
-      width: '15%',
-      columnGap: 16,
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    address: {
-      ...fonts.bodyBase,
-      fontSize: fonts.sizes.lg,
-    },
-    icon: {
-      color: colors.text.primary,
-    },
-  })
+const styles = StyleSheet.create({
+  addressCard: {
+    padding: 20,
+    minHeight: 32,
+    display: 'flex',
+    borderRadius: 20,
+    position: 'relative',
+    flexDirection: 'row',
+    borderWidth: borders.width.lg,
+    borderColor: colors.border.card,
+    backgroundColor: colors.bg.secondary,
+  },
+  commingSoon: {
+    top: borders.width.lg,
+    left: borders.width.lg,
+    right: borders.width.lg,
+    bottom: borders.width.lg,
+    opacity: 0.25,
+    position: 'absolute',
+  },
+  addressInfo: {
+    width: '85%',
+    paddingRight: 12,
+    justifyContent: 'center',
+  },
+  addressActions: {
+    width: '15%',
+    columnGap: 16,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  address: {
+    ...fonts.bodyBase,
+    fontSize: fonts.sizes.lg,
+  },
+  icon: {
+    color: colors.text.primary,
+  },
+})
