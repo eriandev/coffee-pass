@@ -24,7 +24,7 @@ export const Button: FC<ButtonProps> = ({
   onPress,
 }) => {
   const scaleAnim = useRef(new Animated.Value(1)).current
-  const styles = getStyles(compact, square, variant)
+  const styles = useButtonStyles(compact, square, variant)
 
   const handlePressIn = () => {
     Animated.timing(scaleAnim, {
@@ -51,7 +51,20 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
-const getStyles = (isCompact: boolean, isSquare: boolean, variant: ButtonProps['variant'] = 'primary') => {
+const useButtonStyles = (isCompact: boolean, isSquare: boolean, variant: keyof typeof colors.btn) => {
+  const cache = useRef(new Map<string, ReturnType<typeof createStyles>>())
+  const key = `${isCompact}-${isSquare}-${variant}`
+  const cached = cache.current.get(key)
+
+  if (cached) return cached
+
+  const styles = createStyles(isCompact, isSquare, variant)
+  cache.current.set(key, styles)
+
+  return styles
+}
+
+const createStyles = (isCompact: boolean, isSquare: boolean, variant: keyof typeof colors.btn) => {
   return StyleSheet.create({
     button: {
       borderWidth: 2,

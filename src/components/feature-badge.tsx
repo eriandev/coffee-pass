@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import type { ImageStyle, StyleProp, ViewStyle } from 'react-native'
 
@@ -25,7 +26,7 @@ export interface FeatureBadgeProps {
 }
 
 export const FeatureBadge: FC<FeatureBadgeProps> = ({ name, containerStyle, size = 42, style }) => {
-  const styles = getStyles(size)
+  const styles = useBadgeStyles(size)
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -34,7 +35,19 @@ export const FeatureBadge: FC<FeatureBadgeProps> = ({ name, containerStyle, size
   )
 }
 
-const getStyles = (size: number) =>
+const useBadgeStyles = (size: number) => {
+  const cache = useRef(new Map<number, ReturnType<typeof createStyles>>())
+  const cached = cache.current.get(size)
+
+  if (cached) return cached
+
+  const styles = createStyles(size)
+  cache.current.set(size, styles)
+
+  return styles
+}
+
+const createStyles = (size: number) =>
   StyleSheet.create({
     container: {
       display: 'flex',

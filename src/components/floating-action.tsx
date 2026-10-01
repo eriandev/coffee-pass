@@ -7,13 +7,11 @@ import type { FC } from '@/shared/types'
 
 export interface FloatingActionProps {
   size?: number
-  floating?: boolean
   style?: StyleProp<ViewStyle>
   action: (event: GestureResponderEvent) => void
 }
 
 export const FloatingAction: FC<FloatingActionProps> = ({ children, size = 64, style, action }) => {
-  const styles = getStyles(size)
   const scaleValue = useRef(new Animated.Value(1)).current
 
   const handleResponderGrant = () => {
@@ -41,27 +39,23 @@ export const FloatingAction: FC<FloatingActionProps> = ({ children, size = 64, s
       onResponderRelease={handleResponderRelease}
       style={[styles.container, { transform: [{ scale: scaleValue }] }, style]}
     >
-      <View style={styles.button}>{children}</View>
+      <View style={[styles.button, { width: size, height: size }]}>{children}</View>
     </Animated.View>
   )
 }
 
-export const getStyles = (size: number) => {
-  return StyleSheet.create({
-    container: {
-      borderWidth: 1,
-      borderRadius: 999,
-      borderTopWidth: 0,
-      borderBottomWidth: 4,
-      borderColor: colors.btn.primary.border,
-      backgroundColor: colors.btn.primary.bg,
-    },
-    button: {
-      width: size,
-      height: size,
-      borderRadius: 999,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  })
-}
+const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderRadius: 999,
+    borderTopWidth: 0,
+    borderBottomWidth: 4,
+    borderColor: colors.btn.primary.border,
+    backgroundColor: colors.btn.primary.bg,
+  },
+  button: {
+    borderRadius: 999,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
