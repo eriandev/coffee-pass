@@ -3,9 +3,12 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native'
 
 import { Link } from '@/components/link'
 import { storage } from '@/shared/storage'
+import { coffeeShops } from '@/shared/data'
+import { useToast } from '@/hooks/use-toast'
 import { PlusIcon } from '@/components/icons/plus'
+import { NotFoundScreen } from '@/screens/not-found'
 import { AddressCard } from '@/components/address-card'
-import { borders, colors, fonts } from '@/theme/values'
+import { colors, fonts, borders } from '@/theme/values'
 import { SafeArea } from '@/shared/components/safe-area'
 import { FeatureBadge } from '@/components/feature-badge'
 import { FloatingAction } from '@/components/floating-action'
@@ -23,26 +26,26 @@ const socialIcons = {
 } as const
 
 export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
-  const {
-    id,
-    name,
-    pages,
-    parkingLot,
-    peruvianCoffee,
-    petFriendly,
-    places,
-    socials,
-    veganOptions,
-    wifiZone,
-    schedules,
-  } = route.params
-
-  const visitsList = storage.getVisits(id)
-  const timesVisited = visitsList.length
-  const placesCount = places.length
+  const { id } = route.params
+  const { showToast } = useToast()
+  const coffeeShop = coffeeShops.find((shop) => shop.id === id)
   const [showAddVisitModal, setShowAddVisitModal] = useState(false)
   const [showPlaceInfoModal, setShowPlaceInfoModal] = useState(false)
-  const [placeInfo, setPlaceInfo] = useState<CoffeeShopPlace>(places[0])
+  const [placeInfo, setPlaceInfo] = useState<CoffeeShopPlace | null>(null)
+
+  if (!coffeeShop || coffeeShop.places.length === 0) {
+    return <NotFoundScreen />
+  }
+
+  const { name, pages, parkingLot, peruvianCoffee, petFriendly, places, socials, veganOptions, wifiZone, schedules } =
+    coffeeShop
+
+  const timesVisited = storage.getVisits(id).length
+  const placesCount = places.length
+
+  const handleLinkError = () => {
+    showToast('No se pudo abrir el enlace')
+  }
 
   const handleShowPlaceInfo = (place: CoffeeShopPlace) => {
     setPlaceInfo(place)
@@ -57,7 +60,7 @@ export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
           <Text style={styles.title}>{name}</Text>
           <View style={styles.socials}>
             {socials.map(({ link, social }) => (
-              <Link key={social} to={link} style={styles.social}>
+              <Link key={social} to={link} style={styles.social} onError={handleLinkError}>
                 {socialIcons[social]}
               </Link>
             ))}
@@ -74,9 +77,7 @@ export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
 
         <View style={styles.tags}>
           <Text style={timesVisited > 0 ? styles.tag : undefined}>
-            {timesVisited
-              ? `Lo has visitado ${timesVisited ? `${timesVisited} ${timesVisited > 1 ? 'veces' : 'vez'}` : null}`
-              : null}
+            {timesVisited > 0 ? `Lo has visitado ${timesVisited} ${timesVisited > 1 ? 'veces' : 'vez'}` : null}
           </Text>
           <Text style={styles.tag}>
             {placesCount} sede{placesCount > 1 ? 's' : null}
