@@ -1,4 +1,4 @@
-package dev.erian.esl
+package dev.erian.coffeepass
 
 import android.app.Application
 import com.facebook.react.PackageList
