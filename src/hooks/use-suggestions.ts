@@ -11,8 +11,9 @@ export function useSuggestions({ minQueryLength = 3 } = {}) {
     (q: string) => {
       const filterToken = q.toLocaleLowerCase().trim()
 
-      if (typeof q !== 'string' || q.length < minQueryLength) {
+      if (filterToken.length < minQueryLength) {
         setSuggestionsList([])
+        setSuggestionsLoading(false)
         return
       }
 
@@ -27,9 +28,9 @@ export function useSuggestions({ minQueryLength = 3 } = {}) {
     [minQueryLength],
   )
 
-  const clearSuggestions = () => {
+  const clearSuggestions = useCallback(() => {
     setSuggestionsList([])
-  }
+  }, [])
 
   return {
     suggestionsList,
