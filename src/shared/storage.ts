@@ -6,15 +6,23 @@ const mmkv = createMMKV({
   readOnly: false,
 })
 
+const parseVisits = (visitsString: string): string[] => {
+  try {
+    const parsed = JSON.parse(visitsString)
+    return Array.isArray(parsed) ? parsed.filter((date): date is string => typeof date === 'string') : []
+  } catch {
+    return []
+  }
+}
+
 export const storage = {
   getVisits: (coffeeShopId: string) => {
     const visitsString = mmkv.getString(`${coffeeShopId}.visits`)
-    return visitsString ? (JSON.parse(visitsString) as string[]) : []
+    return visitsString ? parseVisits(visitsString) : []
   },
 
   setVisit: (coffeeShopId: string, date: string) => {
-    const visits = storage.getVisits(coffeeShopId)
-    const visitsList = visits ? ([...visits, date] as string[]) : [date]
+    const visitsList = [...storage.getVisits(coffeeShopId), date]
     mmkv.set(`${coffeeShopId}.visits`, JSON.stringify(visitsList))
   },
 } as const
