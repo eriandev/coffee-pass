@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
@@ -14,9 +14,9 @@ export interface AddVisitlModalProps {
 }
 
 export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModalProps) => {
-  const maximumDate = new Date()
-  const minimumDate = new Date('2020-01-01')
-  const [date, setDate] = useState(new Date())
+  const maximumDate = useMemo(() => new Date(), [])
+  const minimumDate = useMemo(() => new Date('2020-01-01'), [])
+  const [date, setDate] = useState(() => new Date())
 
   const resetDate = () => {
     setDate(new Date())
@@ -29,11 +29,11 @@ export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModal
 
   const handleAccept = () => {
     const year = date.getFullYear()
-    const day = date.getDate().toString().padStart(2, '00')
-    const month = (date.getMonth() + 1).toString().padStart(2, '00')
+    const day = date.getDate().toString().padStart(2, '0')
+    const month = (date.getMonth() + 1).toString().padStart(2, '0')
     storage.setVisit(coffeeShopId, `${year}/${month}/${day}`)
 
-    onClose()
+    handleClose()
   }
 
   return (
@@ -43,6 +43,7 @@ export const AddVisitModal = ({ coffeeShopId, visible, onClose }: AddVisitlModal
       animationType="fade"
       title="Agrega una visita"
       onRequestClose={handleClose}
+      onClose={handleClose}
     >
       <View>
         <DatePicker
