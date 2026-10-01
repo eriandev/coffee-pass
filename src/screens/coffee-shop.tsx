@@ -113,12 +113,14 @@ export function CoffeeShopScreen({ route }: ScreenProps<'coffeeShop'>) {
       </FloatingAction>
 
       <AddVisitModal coffeeShopId={id} visible={showAddVisitModal} onClose={() => setShowAddVisitModal(false)} />
-      <PlaceInfoModal
-        info={placeInfo}
-        schedules={schedules}
-        visible={showPlaceInfoModal}
-        onClose={() => setShowPlaceInfoModal(false)}
-      />
+      {placeInfo ? (
+        <PlaceInfoModal
+          info={placeInfo}
+          schedules={schedules}
+          visible={showPlaceInfoModal}
+          onClose={() => setShowPlaceInfoModal(false)}
+        />
+      ) : null}
     </SafeArea>
   )
 }
