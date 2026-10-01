@@ -963,13 +963,13 @@ export const coffeeShops: CoffeeShop[] = [
     peruvianCoffee: false,
     menuLink: 'https://drive.google.com/file/d/1uk_jxLQY7LjHtwkaCvEwAmEt7hFqWPWV/view',
     schedules: [
-      { weekday: 'lunes', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'martes', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'miércoles', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'jueves', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'viernes', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'sábado', openingTime: '9:00', closingTime: '??:??' },
-      { weekday: 'domingo', openingTime: '9:00', closingTime: '??:??' },
+      { weekday: 'lunes', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'martes', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'miércoles', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'jueves', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'viernes', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'sábado', openingTime: '9:00', closingTime: '18:00' },
+      { weekday: 'domingo', openingTime: '9:00', closingTime: '18:00' },
     ],
     places: [
       {
@@ -984,7 +984,7 @@ export const coffeeShops: CoffeeShop[] = [
       },
     ],
     pages: [60, 61],
-    keys: ['comadre café', 'pueblo libre', 'miraflores', 'comadrecafe.pe'],
+    keys: ['comadre café', 'pueblo libre', 'comadrecafe.pe'],
   },
   {
     id: 'd2ea1baedb9e',
